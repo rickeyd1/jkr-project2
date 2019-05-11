@@ -4,7 +4,7 @@ import './includes/bootstrap';
 import './App.css';
 import { Provider } from 'react-redux';
 import { store } from './Store';
-import { RecipeComponent } from './components/recipe.component';
+import { RecipeComponent } from './components/recipe-component/recipe.component';
 
 const App: React.FC = () => {
   return (

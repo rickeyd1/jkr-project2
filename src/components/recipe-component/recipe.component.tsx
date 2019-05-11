@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import { Ingredient } from "../model/ingredient";
-import { IState, IAddRecipeState } from "../reducers";
-import { recipeSet } from "../actions/recipe.action";
+import { Ingredient } from "../../model/ingredient";
+import { IState } from "../../reducers";
+import { recipeSet } from "../../actions/recipe.action";
 import { connect } from "react-redux";
-
-
 
 interface IRecipeState {
     ingredient: Ingredient[];
