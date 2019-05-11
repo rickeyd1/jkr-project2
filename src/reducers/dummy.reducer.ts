@@ -12,12 +12,14 @@ export const dummyReducer = (state = initialState, action) => {
                 ...state,
                 dumMessage: 'This is a dummy test for Redux'
             }
-    
-        default:
         case dumTypes.DUMMY_CHECK:
             return {
                 ...state,
                 dumMessage: 'All checks has been passed'
             }
+                
+        default:
+        
     }
+    return state;
 }

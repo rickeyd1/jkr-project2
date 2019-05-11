@@ -4,16 +4,15 @@ import './includes/bootstrap';
 import './App.css';
 import { Provider } from 'react-redux';
 import { store } from './Store';
+import { DummyComponent } from './components/dummy.component';
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-    <BrowserRouter>
-      <main id="container">
-            Hello
-      </main>
- </BrowserRouter>
- </Provider>
+      <BrowserRouter>
+        <Route path='/dummy' component={DummyComponent} />
+      </BrowserRouter>
+    </Provider>
   );
 }
 

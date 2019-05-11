@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Dummy extends React.Component {
+export class DummyComponent extends React.Component {
     render() {
         return (
             <div>
