@@ -1,3 +1,6 @@
+*NOTES*
+dummy.reducer doesn't have a return state; Forgot to add that in.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
