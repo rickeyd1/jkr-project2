@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *NOTES*
 dummy.reducer doesn't have a return state; Forgot to add that in.
 
@@ -45,3 +46,14 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+=======
+## Current Issues
+  App.tsx for import of RecipeComponent is wrong. Since it redux and doesn't neeed to be wrapped by react so it needs to lose       the brackets.
+  
+## List any Changes that need to be made
+  Any changes that need to do but unable to currently to fix right now should go here.
+    o No Changes
+    o No Changes
+    o No Changes
+    o No Changes
+>>>>>>> 6378f4e5cf679b54ff10dcd46e495546bfadec11
