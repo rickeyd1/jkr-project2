@@ -16,10 +16,10 @@ public class UserService {
 		return userRepo.save(u);
 	}
 	
-//	public User findByUsernameAndPasword(User u) {
-//		return userRepo.findByUsernameAndPassword(u);
-//	}
-//	
+	public Users findByUsernameAndPasword(String username, String password) {
+		return userRepo.findByUsernameAndPassword(username, password);
+	}
+	
 	
 	public Users findById(int id) {
 		return userRepo.getOne(id);
