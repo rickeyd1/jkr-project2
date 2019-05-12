@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -27,79 +28,74 @@ public class Meal {
 	@OneToOne
 	private User user; 
 
+	@ManyToOne
+	private TimeOfTable day;
+	
 	public Meal() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Meal(int mealId, String mealName, int size, User user) {
+	public Meal(int mealId, String mealName, int size, User user, TimeOfTable day) {
 		super();
 		this.mealId = mealId;
 		this.mealName = mealName;
 		this.size = size;
 		this.user = user;
+		this.day = day;
 	}
 
-	/**
-	 * @return the mealId
-	 */
 	public int getMealId() {
 		return mealId;
 	}
 
-	/**
-	 * @param mealId the mealId to set
-	 */
 	public void setMealId(int mealId) {
 		this.mealId = mealId;
 	}
 
-	/**
-	 * @return the mealName
-	 */
 	public String getMealName() {
 		return mealName;
 	}
 
-	/**
-	 * @param mealName the mealName to set
-	 */
 	public void setMealName(String mealName) {
 		this.mealName = mealName;
 	}
 
-	/**
-	 * @return the size
-	 */
 	public int getSize() {
 		return size;
 	}
 
-	/**
-	 * @param size the size to set
-	 */
 	public void setSize(int size) {
 		this.size = size;
 	}
 
-	/**
-	 * @return the user
-	 */
 	public User getUser() {
 		return user;
 	}
 
-	/**
-	 * @param user the user to set
-	 */
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public TimeOfTable getDay() {
+		return day;
+	}
+
+	public void setDay(TimeOfTable day) {
+		this.day = day;
+	}
+
+	@Override
+	public String toString() {
+		return "Meal [mealId=" + mealId + ", mealName=" + mealName + ", size=" + size + ", user=" + user + ", day="
+				+ day + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((day == null) ? 0 : day.hashCode());
 		result = prime * result + mealId;
 		result = prime * result + ((mealName == null) ? 0 : mealName.hashCode());
 		result = prime * result + size;
@@ -116,6 +112,11 @@ public class Meal {
 		if (getClass() != obj.getClass())
 			return false;
 		Meal other = (Meal) obj;
+		if (day == null) {
+			if (other.day != null)
+				return false;
+		} else if (!day.equals(other.day))
+			return false;
 		if (mealId != other.mealId)
 			return false;
 		if (mealName == null) {
@@ -133,10 +134,4 @@ public class Meal {
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "Meal [mealId=" + mealId + ", mealName=" + mealName + ", size=" + size + ", user=" + user + "]";
-	}
-
-	
 }

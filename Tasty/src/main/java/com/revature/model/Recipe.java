@@ -27,79 +27,67 @@ public class Recipe {
 	@ManyToOne
 	private Category category;
 
+	@ManyToOne
+	private User user;
+	
 	public Recipe() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Recipe(int recipeId, String recipeName, int calories, Category category) {
+	public Recipe(int recipeId, String recipeName, int calories, Category category, User user) {
 		super();
 		this.recipeId = recipeId;
 		this.recipeName = recipeName;
 		this.calories = calories;
 		this.category = category;
+		this.user = user;
 	}
 
-	/**
-	 * @return the recipeId
-	 */
 	public int getRecipeId() {
 		return recipeId;
 	}
 
-	/**
-	 * @param recipeId the recipeId to set
-	 */
 	public void setRecipeId(int recipeId) {
 		this.recipeId = recipeId;
 	}
 
-	/**
-	 * @return the recipeName
-	 */
 	public String getRecipeName() {
 		return recipeName;
 	}
 
-	/**
-	 * @param recipeName the recipeName to set
-	 */
 	public void setRecipeName(String recipeName) {
 		this.recipeName = recipeName;
 	}
 
-	/**
-	 * @return the calories
-	 */
 	public int getCalories() {
 		return calories;
 	}
 
-	/**
-	 * @param calories the calories to set
-	 */
 	public void setCalories(int calories) {
 		this.calories = calories;
 	}
 
-	/**
-	 * @return the category
-	 */
 	public Category getCategory() {
 		return category;
 	}
 
-	/**
-	 * @param category the category to set
-	 */
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
 	public String toString() {
 		return "Recipe [recipeId=" + recipeId + ", recipeName=" + recipeName + ", calories=" + calories + ", category="
-				+ category + "]";
+				+ category + ", user=" + user + "]";
 	}
 
 	@Override
@@ -110,6 +98,7 @@ public class Recipe {
 		result = prime * result + ((category == null) ? 0 : category.hashCode());
 		result = prime * result + recipeId;
 		result = prime * result + ((recipeName == null) ? 0 : recipeName.hashCode());
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
 
@@ -136,8 +125,12 @@ public class Recipe {
 				return false;
 		} else if (!recipeName.equals(other.recipeName))
 			return false;
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} else if (!user.equals(other.user))
+			return false;
 		return true;
 	}
-	
 	
 }

@@ -21,48 +21,48 @@ public class Fridge {
 	@OneToOne
 	private User userId;
 
+	@OneToOne
+	private Groceries groceryList;
+	
 	public Fridge() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Fridge(int fridgeId, User userId) {
+	public Fridge(int fridgeId, User userId, Groceries groceryList) {
 		super();
 		this.fridgeId = fridgeId;
 		this.userId = userId;
+		this.groceryList = groceryList;
 	}
 
-	/**
-	 * @return the fridgeId
-	 */
 	public int getFridgeId() {
 		return fridgeId;
 	}
 
-	/**
-	 * @param fridgeId the fridgeId to set
-	 */
 	public void setFridgeId(int fridgeId) {
 		this.fridgeId = fridgeId;
 	}
 
-	/**
-	 * @return the userId
-	 */
 	public User getUserId() {
 		return userId;
 	}
 
-	/**
-	 * @param userId the userId to set
-	 */
 	public void setUserId(User userId) {
 		this.userId = userId;
 	}
 
+	public Groceries getGroceryList() {
+		return groceryList;
+	}
+
+	public void setGroceryList(Groceries groceryList) {
+		this.groceryList = groceryList;
+	}
+
 	@Override
 	public String toString() {
-		return "Fridge [fridgeId=" + fridgeId + ", userId=" + userId + "]";
+		return "Fridge [fridgeId=" + fridgeId + ", userId=" + userId + ", groceryList=" + groceryList + "]";
 	}
 
 	@Override
@@ -70,6 +70,7 @@ public class Fridge {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + fridgeId;
+		result = prime * result + ((groceryList == null) ? 0 : groceryList.hashCode());
 		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
 		return result;
 	}
@@ -85,6 +86,11 @@ public class Fridge {
 		Fridge other = (Fridge) obj;
 		if (fridgeId != other.fridgeId)
 			return false;
+		if (groceryList == null) {
+			if (other.groceryList != null)
+				return false;
+		} else if (!groceryList.equals(other.groceryList))
+			return false;
 		if (userId == null) {
 			if (other.userId != null)
 				return false;
@@ -92,4 +98,5 @@ public class Fridge {
 			return false;
 		return true;
 	}
+
 }
