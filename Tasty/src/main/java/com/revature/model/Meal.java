@@ -26,7 +26,7 @@ public class Meal {
 	private int size;
 	
 	@OneToOne
-	private User user; 
+	private Users user; 
 
 	@ManyToOne
 	private TimeOfTable day;
@@ -36,7 +36,7 @@ public class Meal {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Meal(int mealId, String mealName, int size, User user, TimeOfTable day) {
+	public Meal(int mealId, String mealName, int size, Users user, TimeOfTable day) {
 		super();
 		this.mealId = mealId;
 		this.mealName = mealName;
@@ -69,11 +69,11 @@ public class Meal {
 		this.size = size;
 	}
 
-	public User getUser() {
+	public Users getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(Users user) {
 		this.user = user;
 	}
 

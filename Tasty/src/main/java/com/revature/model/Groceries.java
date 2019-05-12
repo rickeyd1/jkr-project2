@@ -17,14 +17,14 @@ public class Groceries {
 	private int groceryInt;
 	
 	@OneToOne
-	private User userId;
+	private Users userId;
 
 	public Groceries() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Groceries(int groceryInt, User userId) {
+	public Groceries(int groceryInt, Users userId) {
 		super();
 		this.groceryInt = groceryInt;
 		this.userId = userId;
@@ -47,14 +47,14 @@ public class Groceries {
 	/**
 	 * @return the userId
 	 */
-	public User getUserId() {
+	public Users getUserId() {
 		return userId;
 	}
 
 	/**
 	 * @param userId the userId to set
 	 */
-	public void setUserId(User userId) {
+	public void setUserId(Users userId) {
 		this.userId = userId;
 	}
 

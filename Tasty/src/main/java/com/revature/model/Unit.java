@@ -17,7 +17,7 @@ public class Unit {
 	@Column(name = "unit_id")
 	private int unitId;
 	
-	@Column(name = "unit_name", nullable = false, unique = true)
+	@Column(name = "name", nullable = false, unique = true)
 	private String unitName;
 	
 	@Column(name = "amount", nullable = false)

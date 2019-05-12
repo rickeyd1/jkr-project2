@@ -19,7 +19,7 @@ public class Fridge {
 	private int fridgeId;
 	
 	@OneToOne
-	private User userId;
+	private Users userId;
 
 	@OneToOne
 	private Groceries groceryList;
@@ -29,7 +29,7 @@ public class Fridge {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Fridge(int fridgeId, User userId, Groceries groceryList) {
+	public Fridge(int fridgeId, Users userId, Groceries groceryList) {
 		super();
 		this.fridgeId = fridgeId;
 		this.userId = userId;
@@ -44,11 +44,11 @@ public class Fridge {
 		this.fridgeId = fridgeId;
 	}
 
-	public User getUserId() {
+	public Users getUserId() {
 		return userId;
 	}
 
-	public void setUserId(User userId) {
+	public void setUserId(Users userId) {
 		this.userId = userId;
 	}
 

@@ -11,34 +11,35 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-public class User {
+public class Users {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
 	private int userId;
 	
-	@Column(name = "username", nullable = false, unique = true)
-	private String username;
+	@Column(name = "name", nullable = false)
+	private String name;
 	
 	@Column(name = "email", nullable = false, unique = true)
 	private String email;
 	
+	@Column(name = "username", nullable = false, unique = true)
+	private String username;
+	
 	@Column(name = "password", nullable = false)
 	private String password;
 	
-	@Column(name = "name", nullable = false)
-	private String name;
 
 	@OneToOne
 	private Groceries groceryId;
 
-	public User() {
+	public Users() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(int userId, String username, String email, String password, String name, Groceries groceryId) {
+	public Users(int userId, String username, String email, String password, String name, Groceries groceryId) {
 		super();
 		this.userId = userId;
 		this.username = username;
@@ -69,7 +70,7 @@ public class User {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		Users other = (Users) obj;
 		if (email == null) {
 			if (other.email != null)
 				return false;
