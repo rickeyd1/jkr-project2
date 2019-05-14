@@ -1,17 +1,17 @@
 package com.revature.dto;
 
-public class Login {
+public class LoginDto {
 	
 	private String username;
 	
 	private String password;
 
-	public Login() {
+	public LoginDto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Login(String username, String password) {
+	public LoginDto(String username, String password) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -55,7 +55,7 @@ public class Login {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Login other = (Login) obj;
+		LoginDto other = (LoginDto) obj;
 		if (password == null) {
 			if (other.password != null)
 				return false;
