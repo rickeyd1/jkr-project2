@@ -1,17 +1,15 @@
 package com.revature.dto;
 
-public class LoginDto {
-	
-	private String username;
-	
-	private String password;
+public class CredentialDto {
 
-	public LoginDto() {
+	private String username;
+	private String password;
+	
+	public CredentialDto() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public LoginDto(String username, String password) {
+	public CredentialDto(String username, String password) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -34,11 +32,6 @@ public class LoginDto {
 	}
 
 	@Override
-	public String toString() {
-		return "Login [username=" + username + ", password=" + password + "]";
-	}
-
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -55,7 +48,7 @@ public class LoginDto {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		LoginDto other = (LoginDto) obj;
+		CredentialDto other = (CredentialDto) obj;
 		if (password == null) {
 			if (other.password != null)
 				return false;
@@ -68,7 +61,10 @@ public class LoginDto {
 			return false;
 		return true;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "CredentialDto [username=" + username + "]";
+	}
 	
 }
