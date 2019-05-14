@@ -58,6 +58,7 @@ public class UserController {
 		
 		//userService.updateUser(newUser.getUserId(), newUser.getName(), newUser.getEmail(), newUser.getUsername(), newUser.getPassword());
 		userService.save(newUser);
+		
 		ResponseEntity<Users> resp = new ResponseEntity<Users>(newUser, HttpStatus.I_AM_A_TEAPOT);
 		return resp;
 	}
