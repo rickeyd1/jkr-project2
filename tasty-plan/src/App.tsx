@@ -1,25 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import './includes/bootstrap';
 import './App.css';
+import { Provider } from 'react-redux';
+import { store } from './Store';
+import { DummyComponent } from './components/dummy.component';
+import { RecipeComponent } from './components/recipe-component/recipe.component';
+import { ProfileComponent } from './components/profile-component/profile.component';
+import logInComponent from './components/log-component/log-in.component';
+import { IngredientComponent } from './components/ingredient-component/ingredient.component';
+import { MealComponent } from './components/meal-component/meal.component';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Route path='/dummy' component={DummyComponent} />
+        <Route path="/recipe" component={RecipeComponent} />
+        <Route path="/profile" component={ProfileComponent} />
+        <Route path="/login" component={logInComponent} />
+        <Route path="/ingredient" component={IngredientComponent} />
+        <Route path="/meal" component={MealComponent} />
+        <Route exact path="/" component={logInComponent} />
+      </BrowserRouter>
+    </Provider>
   );
 }
 
