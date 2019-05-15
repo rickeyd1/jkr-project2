@@ -1,40 +1,66 @@
-export const authTypes = {
-    INVALID_CREDENTIALS: 'INVALID_CREDENTIALS',
-    FAILED_TO_LOGIN: 'FAILED_TO_LOGIN',
-    LOGGED_IN: 'LOGGED_IN'
+export const loginTypes = {
+    LOGGED_IN: 'LOGGED_IN',
+    UPDATE_USERNAME: 'UPDATE_USERNAME',
+    UPDATE_PASSWORD: 'UPDATE_PASSWORD',
+    UPDATE_ERROR: 'UPDATE_ERROR',
+    LOGIN_FAILED: 'LOGIN_FAILED'
 }
 
-export const login = (username: string, password: string, history: any) => async(dispatch) => {
-    try {
-      const resp = await fetch('EnviromentVariableGoesHere(Dev)', {
-        method: 'POST',
-        credentials: 'include',
-        body: JSON.stringify({username, password}),
-        headers: {
-          'content-type': 'application/json'
+export const submitLogin = (username: string, password: string, event, history) => async (dispatch) => {
+    event.preventDefault();
+    const credentials = {
+        username: username,
+        password: password
+    };
+    console.log("Logging In");
+    try{
+        const resp = await fetch('http://localhost:8080/user/login', {
+            method: 'POST',
+            credentials: 'include',
+            body: JSON.stringify(credentials),
+            headers: {
+                'content-type': 'application/json'
+            }
+        });
+
+        console.log(resp);
+        if (resp.status === 400){
+            dispatch({
+                type: loginTypes.UPDATE_ERROR
+            })
+        } else if (resp.status === 200) {
+            const body = await resp.json();
+            history.push('/dummy');
+            dispatch({
+                payload: {
+                    user: body
+                },
+                type: loginTypes.LOGGED_IN
+            })
+        } else {
+            dispatch({
+                type: loginTypes.LOGIN_FAILED
+            })
         }
-      })
-      if (resp.status === 401) {
-        dispatch({
-          type: authTypes.INVALID_CREDENTIALS
-        })
-      } else if (resp.status === 200) {
-        const user = await resp.json();
-        const role = user.role;
-        dispatch({
-          payload: {
-            user,
-            role
-          },
-          type: authTypes.LOGGED_IN
-        })
-        history.push('/home');
-      } else {
-        dispatch({
-          type: authTypes.FAILED_TO_LOGIN
-        })
-      }
     } catch (err) {
-      console.log(err);
+        console.log(err);
+    }
+}
+
+export const updateUsername = (event) => {
+    return {
+        payload: {
+            username: event.target.value
+        },
+        type: loginTypes.UPDATE_USERNAME
+    }
+}
+
+export const updatePassword = (event) => {
+    return {
+        payload: {
+            password: event.target.value
+        },
+        type: loginTypes.UPDATE_PASSWORD
     }
 }

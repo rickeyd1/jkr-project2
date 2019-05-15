@@ -1,61 +1,25 @@
 import React, { Component } from 'react';
-import { User } from "../../model/user";
-import { login } from "../../actions/login.action";
-import { logout } from "../../actions/logout.action";
 import { connect } from 'react-redux';
-import { IState } from "../../reducers";
+import { IState, ILoginState } from "../../reducers";
 import '../../includes/bootstrap';
+import { updateUsername, submitLogin, updatePassword } from '../../actions/login.action';
+import history from '../../util/history';
 
-interface ILoginState {
-    username: string;
-    password: string;
+export interface ILoginProps {
+    login: ILoginState,
+    updateUsername: (event) => void,
+    updatePassword: (event) => void,
+    submitLogin: (username: string, password: string, event, history) => void
 }
 
-interface ILoginProps {
-    currentUser: User
-    login: (username: string, password: string, history: any) => void
-    logout: () => void
-}
-
-export class LoginComponent extends Component<ILoginProps, ILoginState> {
-    constructor(props) {
-        super(props);
-        this.state = {
-            username: '',
-            password: ''
-        };
-    }
-
-    //Log in
-    login = async (e) => {
-
-    }
-
-    //Log out
-    logout = async (e) => {
-
-    }
-
-    //Update username
-    updateUsername = (e) => {
-        this.setState({
-            username: e.target.value
-        });
-    }
-
-    //Update password
-    updatePassword = (e) => {
-        this.setState({
-            password: e.target.value
-        });
-    }
+export class LoginComponent extends Component<ILoginProps> {
 
     render() {
-        const user = this.props.currentUser;
-        const { username, password } = this.state;
         const stylesObj = {
             background: 'linear-gradient(to right, #45bfb5, #e06f50)'
         };
+
+        const {username, password } = this.props.login;
 
         return (
             <div style={stylesObj} className="mainContainer">
@@ -64,14 +28,14 @@ export class LoginComponent extends Component<ILoginProps, ILoginState> {
                 <div className="card card-signin my-5">
                 <div className="card-body">
                     <h5 className="card-title text-center">Sign In</h5>
-                    <form className="form-signin">
+                    <form className="form-signin" onSubmit={(e) => this.props.submitLogin(username, password, e, history)}>
                     <div className="form-label-group">
-                        <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required />
-                        <label htmlFor="inputEmail">Email address</label>
+                        <input type="text" id="inputEmail" className="form-control" placeholder="Username" required value={username} onChange={(e) => this.props.updateUsername(e)} />
+                        <label htmlFor="inputEmail">Username</label>
                     </div>
 
                     <div className="form-label-group">
-                        <input type="password" id="inputPassword" className="form-control" placeholder="Password" required />
+                        <input type="password" id="inputPassword" className="form-control" placeholder="Password" required value={password} onChange={(e) => this.props.updatePassword(e)}/>
                         <label htmlFor="inputPassword">Password</label>
                     </div>
 
@@ -81,6 +45,8 @@ export class LoginComponent extends Component<ILoginProps, ILoginState> {
                     </div>
                     <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
                     </form>
+                    <br />
+                    <h6 className="text-center">{this.props.login.errorMessage}</h6>
                 </div>
                 </div>
             </div>
@@ -92,14 +58,14 @@ export class LoginComponent extends Component<ILoginProps, ILoginState> {
 
 const mapStateToProps = (state: IState) => {
     return {
-        auth: state.auth,
-        currentUser: state.auth.currentUser
+        login: state.login
     }
 }
 
 const mapDispatchToProps = {
-    login: login,
-    logout: logout
+    updateUsername: updateUsername,
+    updatePassword: updatePassword,
+    submitLogin: submitLogin
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginComponent);
