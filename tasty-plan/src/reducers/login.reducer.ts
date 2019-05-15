@@ -13,7 +13,8 @@ export const loginReducer = (state = initialState, action) => {
         case loginTypes.LOGGED_IN:
             return {
                 ...state,
-                user: action.payload.user
+                user: action.payload.user,
+                errorMessage: ''
             }
         case loginTypes.UPDATE_USERNAME:
             return {
