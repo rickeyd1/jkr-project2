@@ -26,3 +26,23 @@
 .container {
   box-flex: center;
 }
+
+/***************************************
+THIS IS A MEAL PAGE!
+***************************************/
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.NavSidebar {
+  background-color: teal;
+  margin-right: 80%;
+  height: 100%;
+  position: fixed;
+
+}
+
+#root {
+  height:100%;
+}
