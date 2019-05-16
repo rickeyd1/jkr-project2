@@ -12,20 +12,22 @@ import { IngredientComponent } from './components/ingredient-component/ingredien
 import { MealComponent } from './components/meal-component/meal.component';
 import history from './util/history';
 import { GroceryComponent } from './components/grocery-component/grocery.component';
+import  MenuContainer  from './components/menu-component/menu.container';
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <Router history={history}>
-        <Route path='/dummy' component={DummyComponent} />
-        <Route path="/recipe" component={RecipeComponent} />
-        <Route path="/grocery" component={GroceryComponent} />
-        <Route path="/profile" component={ProfileComponent} />
-        <Route path="/login" component={logInComponent} />
-        <Route path="/ingredient" component={IngredientComponent} />
-        <Route path="/meal" component={MealComponent} />
-        <Route exact path="/" component={logInComponent} />
-      </Router>
+        <Router history={history}>
+          <MenuContainer />
+          <Route path='/dummy' component={DummyComponent} />
+          <Route path="/recipe" component={RecipeComponent} />
+          <Route path="/grocery" component={GroceryComponent} />
+          <Route path="/profile" component={ProfileComponent} />
+          <Route path="/login" component={logInComponent} />
+          <Route path="/ingredient" component={IngredientComponent} />
+          <Route path="/meal" component={MealComponent} />
+          <Route exact path="/" component={logInComponent} />
+        </Router>
     </Provider>
   );
 }

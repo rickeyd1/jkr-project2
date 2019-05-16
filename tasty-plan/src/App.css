@@ -27,6 +27,14 @@
   box-flex: center;
 }
 
+body {
+  font-family: sans-serif;
+}
+
+#container li {
+  margin-bottom: 10px;
+}
+
 /*********************LOGIN***********************/
 
 :root {
@@ -142,4 +150,94 @@
 .btn-facebook {
   color: white;
   background-color: #3b5998;
+}
+
+/************************NAV-BAR/Menu********************************/
+
+#theMenu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  transform: translate3d(-100vw, 0,0);
+
+  width: 100vw;
+  height: 100vh;
+}
+
+#roundButton {
+  background-color: #96D9FF;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 10px solid #e06f50;
+  outline: none;
+  transition: all .2s cubic-bezier(0, 1.26, .8, 1.28);
+}
+
+#roundButton:hover {
+  background-color: #d1ffc2;
+  cursor: pointer;
+  border-color: #003557;
+  transform: scale(1.2, 1.2);
+}
+ 
+#roundButton:active {
+  border-color: #003557;
+  background-color: #FFF;
+}
+
+#flyoutMenu {
+  width: 100vw;
+  height: 100vh;
+  background-color: #45bfb5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform .3s
+              cubic-bezier(0, .52, 0, 1);
+  overflow: scroll;
+  z-index: 1000;
+}
+ 
+#flyoutMenu.hide {
+  transform: translate3d(-100vw, 0, 0);
+}
+ 
+#flyoutMenu.show {
+  transform: translate3d(0vw, 0, 0);
+  overflow: hidden;
+}
+ 
+#flyoutMenu h2 a {
+  color: #FFF;
+  margin-left: 15px;
+  text-decoration: none;
+}
+ 
+#flyoutMenu h2 a:hover {
+  text-decoration: underline;
+}
+
+.nav-background {
+  background-color: #45bfb5
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+  color: #f9fafc;
+}
+
+nav {
+  -webkit-box-shadow: 1px -12px 28px -1px rgba(0, 0, 0, 0.87);
+  -moz-box-shadow: 1px -12px 28px -1px rgba(0, 0, 0, 0.87);
+  box-shadow: 1px -12px 28px -1px rgba(0, 0, 0, 0.87);
+}
+
+a {
+  color: #ffff;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover{
+  color: #ffff;
 }
