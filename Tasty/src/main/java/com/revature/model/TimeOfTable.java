@@ -1,10 +1,13 @@
 package com.revature.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -19,12 +22,11 @@ public class TimeOfTable {
 	@Column(name = "time_id")
 	private int timeId;
 	
-	@Column(name = "day", nullable = false, unique = true)
-	private String day;
-	
 	@Column(name = "time_name", nullable = false, unique = true)
 	private String timeName;
 
+	@OneToMany
+	private List<DateMeal> daydate;
 	public TimeOfTable() {
 		super();
 		// TODO Auto-generated constructor stub

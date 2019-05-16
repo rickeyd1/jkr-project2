@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,39 +25,14 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@Secured
 	@GetMapping("{id}")
 	public Users findById(@PathVariable int id) {
 		return userService.findById(id);
 	}
 	
-	@Secured
 	@PostMapping()
 	public Users save(@RequestBody Users u) { 
 		return userService.save(u);
-	}
-	
-	@PatchMapping()
-	public ResponseEntity<Users> patch(@RequestBody Users newUser) {
-		Users current = userService.findById(newUser.getUserId());
-		if(newUser.getName() == null) {
-			newUser.setName(current.getName());
-		}
-		if(newUser.getUsername() == null) {
-			newUser.setUsername(current.getUsername());
-		}
-		if(newUser.getPassword() == null) {
-			newUser.setPassword(current.getPassword());
-		}
-		if(newUser.getEmail() == null) {
-			newUser.setEmail(current.getEmail());
-		}
-
-		//userService.updateUser(newUser.getUserId(), newUser.getName(), newUser.getEmail(), newUser.getUsername(), newUser.getPassword());
-		userService.save(newUser);
-
-		ResponseEntity<Users> resp = new ResponseEntity<Users>(newUser, HttpStatus.I_AM_A_TEAPOT);
-		return resp;
 	}
 	
 	@PostMapping("/login")
@@ -66,7 +40,7 @@ public class UserController {
 		Users user = userService.login(credentials);
 		if (user != null) {
 			req.getSession().setAttribute("user", user);
-			return new ResponseEntity<Users>(user, HttpStatus.OK);
+			return new ResponseEntity<Users>(user, HttpStatus.CREATED);
 		} else {
 			return new ResponseEntity<Users>(HttpStatus.BAD_REQUEST);
 		}
