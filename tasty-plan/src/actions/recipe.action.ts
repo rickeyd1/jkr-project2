@@ -1,17 +1,26 @@
-import { Ingredient } from "../model/ingredient";
+import { Recipe } from "../model/recipe";
 
 export const recipeType = {
     NO_INGREDIENTS: 'NO_INGREDIENT',
     RECIPE_SUCCESS: 'RECIPE_SUCCESSFUL',
     RECIPE_FAILED: 'RECIPE_FAILED',
+    CALORY_UPDATED : 'CALORY_UPDATED',
+    RECIPE_NAME_UPDATED : 'RECIPE_NAME_UPDATED',
 }
 
-export const recipeSet = (ingredient: Ingredient, totalCalories: number) => async (dispatch) => {
+export const recipeSet = (recipeId : number,recipeName: string, totalcalorie: number, category:undefined, user:undefined, meal:undefined) => async (dispatch) => {
     try {
-        const resp = await fetch('FETCHING_RECIPES', {
+        const newRecipe = {
+            recipeId: 0,
+            recipeName: recipeName,
+            calories: totalcalorie
+        }
+        
+        console.log(JSON.stringify(newRecipe));
+        const resp = await fetch('http://localhost:8080/recipe', {
             method: 'POST',
             credentials: 'include',
-            body: JSON.stringify({ingredient, totalCalories}),
+            body: JSON.stringify(newRecipe),
             headers: {
                 'content-type': 'application/json'
             }
@@ -34,7 +43,25 @@ export const recipeSet = (ingredient: Ingredient, totalCalories: number) => asyn
                 type: recipeType.RECIPE_FAILED
             })
         }
-        } catch (err) {
-            console.trace(err);
-        }
+    } catch (err) {
+        console.trace(err);
+    }
+}
+
+export const setCalories = (e) =>  {
+    return {
+        payload : {
+            totalcalories: +e.target.value
+        },
+        type: recipeType.CALORY_UPDATED
+    }
+}
+
+export const setRecipeName = (e) =>  {
+    return {
+        payload : {
+            recipeName : e.target.value
+        },
+        type: recipeType.RECIPE_NAME_UPDATED
+    }
 }

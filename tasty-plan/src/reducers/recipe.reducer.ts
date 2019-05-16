@@ -2,7 +2,11 @@ import { IRecipeState } from ".";
 import { recipeType } from "../actions/recipe.action";
 
 const initialState: IRecipeState = {
-    recipe: undefined,
+    recipeId: 0,
+    recipeName: '',
+    totalcalorie: 0,
+    user: undefined,
+    ingredient: undefined,
     displayMessage: undefined
 }
 
@@ -14,15 +18,15 @@ export const recipeReducer = (state = initialState, action) => {
                 ...state,
                 recipe: action.payload.recipe,
             }
-        case recipeType.RECIPE_FAILED:
+        case recipeType.CALORY_UPDATED:
             return {
                 ...state,
-                displayMessage: 'Recipe failed to grab'
+                totalcalorie: action.payload.totalcalories
             }
-        case recipeType.NO_INGREDIENTS:
+        case recipeType.RECIPE_NAME_UPDATED:
             return {
                 ...state,
-                displayMessage: 'There is no Ingredient created yet'
+                recipeName : action.payload.recipeName
             }
         default:
     }

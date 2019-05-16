@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { dummyReducer } from "./dummy.reducer"
 import { Ingredient } from "../model/ingredient";
 import { ingredientReducer } from "./ingredient.reducer";
-import { Recipe } from "../model/recipe";
+//import { Recipe } from "../model/recipe";
 import { Grocery } from "../model/grocery";
 import { groceryReducer } from "./grocery.reducer";
 import { recipeReducer } from "./recipe.reducer";
@@ -20,8 +20,19 @@ export interface IIngredientState {
 }
 
 export interface IRecipeState {
-    recipe?: Recipe,
+    recipeId?: number,
+    recipeName? : string,
+    totalcalorie?: number,
+    user? : User,
+    ingredient?: Ingredient,
     displayMessage?: String
+}
+
+export interface IMealState {
+    mealId? : number,
+    mealName? : string,
+    size : number,
+    user : User
 }
 
 export interface ILoginState {
@@ -40,7 +51,7 @@ export interface IState {
     ingre: IIngredientState,
     grocery: IGroceryState,
     recipe: IRecipeState,
-    login: ILoginState
+    login: ILoginState,
 }
 
 export const state = combineReducers<IState>({

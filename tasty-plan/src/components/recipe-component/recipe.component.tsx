@@ -1,28 +1,17 @@
 import React, { Component } from "react";
-import { Ingredient } from "../../model/ingredient";
-import { IState } from "../../reducers";
-import { recipeSet } from "../../actions/recipe.action";
+import { IState, IRecipeState } from "../../reducers";
+import { recipeSet, setRecipeName, setCalories } from "../../actions/recipe.action";
 import { connect } from "react-redux";
 import '../../includes/bootstrap';
 
-interface IRecipeState {
-    ingredient: Ingredient[];
-    totalCalories: number;
-}
-
 interface IRecipeProps {
-    ingredient: Ingredient
-    totalCalories: number
+    recipe: IRecipeState,
+    recipeSet: (recipeId : number,recipeName: string, totalcalorie: number, category:undefined, user: undefined, meal:undefined) => void,
+    setCalories: (e) => void,
+    setRecipeName: (e) => void
 
 }
-export class RecipeComponent extends Component<IRecipeProps, IRecipeState> {
-    constructor(props) {
-        super(props)
-        this.state = {
-            ingredient: [],
-            totalCalories: 0
-        }
-    }
+class RecipeComponent extends Component<IRecipeProps> {
     //Grabbing current Recipe from user session
     componentDidMount = async () => {
 
@@ -30,7 +19,9 @@ export class RecipeComponent extends Component<IRecipeProps, IRecipeState> {
 
     //Storing the new Recipe
     SendNewRecipe = (e) => {
-
+        e.preventDefault();
+        this.props.recipeSet(0, this.props.recipe.recipeName, this.props.recipe.totalcalorie,undefined,undefined,undefined)
+        console.log('Submitted');
     }
     //Adding Ingreident to Recipe
     addIngredient = (e) => {
@@ -44,22 +35,42 @@ export class RecipeComponent extends Component<IRecipeProps, IRecipeState> {
 
 
     render() {
+        const { recipeName, totalcalorie} = this.props.recipe;
         return (
             <div>
-                {"Karmanya's branch"}
+                <div>
+                    <form onSubmit={(e) => this.SendNewRecipe(e)}>
+                        <div className="form-group">
+                            <div>
+                                <label htmlFor="exampleInputId">Recipe Name : </label>
+                                <input type="text" className="form-control" id="exampleInputUserid" placeholder="Recipe Name"
+                                    value={recipeName} onChange={(event) => this.props.setRecipeName(event)} />
+                            </div>
+                            <div>
+                                <label htmlFor="exampleInputId">Calories : </label>
+                                <input type="text" className="form-control" id="exampleInputUserid" placeholder="Calories"
+                                    value={totalcalorie} onChange={(event) => this.props.setCalories(event)} />
+                            </div>
+                        </div>
+
+                        <button type="submit" className="btn btn-primary">Submit</button>
+                    </form>
+                </div>
             </div>
-        )
+        );
     }
 }
 
 const mapStateToProps = (state: IState) => {
     return {
-        recipe: state.recipe.recipe
+        recipe: state.recipe
     }
 }
 
 const mapDispatchToProps = {
-    recipe: recipeSet
+    recipeSet: recipeSet,
+    setCalories: setCalories,
+    setRecipeName: setRecipeName
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipeComponent)
