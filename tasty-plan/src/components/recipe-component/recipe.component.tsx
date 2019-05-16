@@ -46,9 +46,7 @@ export class RecipeComponent extends Component<IRecipeProps, IRecipeState> {
     render() {
         return (
             <div>
-                Recipe List <br/>
-                + Ingredients List <br/>
-                + ?
+                {"Karmanya's branch"}
             </div>
         )
     }
