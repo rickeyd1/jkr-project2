@@ -21,7 +21,8 @@ export interface IMenuState{
 }
 
 export interface IGroceryState {
-    groceryList: GroceryIngredients;
+    groceryList: GroceryIngredients[];
+    amount: number;
 }
 
 export interface IIngredientState {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { IState, ILoginState } from "../../reducers";
 import '../../includes/bootstrap';
-import { updateUsername, submitLogin, updatePassword } from '../../actions/login.action';
+import { updateUsername, submitLogin, updatePassword, goToSignUp } from '../../actions/login.action';
 import history from '../../util/history';
 
 export interface ILoginProps {
@@ -10,6 +10,7 @@ export interface ILoginProps {
     updateUsername: (event) => void,
     updatePassword: (event) => void,
     submitLogin: (username: string, password: string, event, history) => void
+    goToSignUp: (event, history) => void
 }
 
 export class LoginComponent extends Component<ILoginProps> {
@@ -28,7 +29,7 @@ export class LoginComponent extends Component<ILoginProps> {
                 <div className="card card-signin my-5">
                 <div className="card-body">
                     <h5 className="card-title text-center">Sign In</h5>
-                    <form className="form-signin" onSubmit={(e) => this.props.submitLogin(username, password, e, history)}>
+                    <form className="form-signin">
                     <div className="form-label-group">
                         <input type="text" id="inputEmail" className="form-control" placeholder="Username" required value={username} onChange={(e) => this.props.updateUsername(e)} />
                         <label htmlFor="inputEmail">Username</label>
@@ -39,11 +40,8 @@ export class LoginComponent extends Component<ILoginProps> {
                         <label htmlFor="inputPassword">Password</label>
                     </div>
 
-                    <div className="custom-control custom-checkbox mb-3">
-                        <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                        <label className="custom-control-label" htmlFor="customCheck1">Remember password</label>
-                    </div>
-                    <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                    <button className="btn btn-lg btn-primary btn-block text-uppercase" onClick={(e) => this.props.submitLogin(username, password, e, history)}>Sign in</button>
+                    <button className="btn btn-lg btn-success btn-block text-uppercase" onClick={(e) => this.props.goToSignUp(e, history)}>Sign Up</button>
                     </form>
                     <br />
                     <h6 className="text-center">{this.props.login.errorMessage}</h6>
@@ -65,7 +63,8 @@ const mapStateToProps = (state: IState) => {
 const mapDispatchToProps = {
     updateUsername: updateUsername,
     updatePassword: updatePassword,
-    submitLogin: submitLogin
+    submitLogin: submitLogin,
+    goToSignUp: goToSignUp
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginComponent);

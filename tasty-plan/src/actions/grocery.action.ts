@@ -2,6 +2,7 @@ import { User } from "../model/user";
 
 export const groceryType = {
     GET_LIST: 'GET_LIST',
+    UPDATE_AMOUNT: 'UPDATE_AMOUNT'
 }
 
 export const getUserGroceryList = () => async (dispatch) => {
@@ -29,4 +30,13 @@ export const getUserGroceryList = () => async (dispatch) => {
     } catch (err) {
         console.log(err);
     }
+}
+
+export const updateAmount = (event) => async (dispatch) => {
+    dispatch({
+        payload: {
+            amount: event.target.value
+        },
+        type: groceryType.UPDATE_AMOUNT
+    })
 }

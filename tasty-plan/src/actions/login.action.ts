@@ -3,7 +3,8 @@ export const loginTypes = {
     UPDATE_USERNAME: 'UPDATE_USERNAME',
     UPDATE_PASSWORD: 'UPDATE_PASSWORD',
     UPDATE_ERROR: 'UPDATE_ERROR',
-    LOGIN_FAILED: 'LOGIN_FAILED'
+    LOGIN_FAILED: 'LOGIN_FAILED',
+    NAVIGATE: 'NAVIGATE'
 }
 
 export const submitLogin = (username: string, password: string, event, history) => async (dispatch) => {
@@ -62,5 +63,12 @@ export const updatePassword = (event) => {
             password: event.target.value
         },
         type: loginTypes.UPDATE_PASSWORD
+    }
+}
+
+export const goToSignUp = (event, history) => {
+    history.push("/signup");
+    return {
+        type: loginTypes.NAVIGATE
     }
 }

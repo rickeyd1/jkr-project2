@@ -1,12 +1,14 @@
 import * as React from 'react';
 import { Component } from 'react';
 import { IGroceryState, IState } from '../../reducers';
-import { getUserGroceryList } from '../../actions/grocery.action';
+import { getUserGroceryList, updateAmount } from '../../actions/grocery.action';
 import { connect } from 'react-redux';
+import { GroceryListItemComponent } from './grocery.list.item.component';
 
 export interface IGroceryComponentProps {
     groceries: IGroceryState;
     getUserGroceryList: () => void;
+    updateAmount: (event) => void;
 }
  
 class GroceryComponent extends React.Component<IGroceryComponentProps> {
@@ -15,9 +17,13 @@ class GroceryComponent extends React.Component<IGroceryComponentProps> {
         this.props.getUserGroceryList();
     }
     
+    handleupdateAmount = (e) => {
+        this.props.updateAmount(e);
+    }
+
     render() {
         const stylesObj = {
-            background: '#d1ffc2'
+            background: '#17bc7f'
         };
         const gList = this.props.groceries.groceryList;
         // ${body2[0].ingredient.name}: ${body2[0].amount} ${body2[0].ingredient.foodType.units.unitName}
@@ -28,12 +34,9 @@ class GroceryComponent extends React.Component<IGroceryComponentProps> {
                 </div>
 
                 <ul id="myUL" className="grocery-list">
-                    <li className="list-option"><div className="innerDiv"><h6 className="list-font-size">{gList && gList[0].ingredient.name}</h6><h6 className="list-font-size">{gList && `${gList[0].amount} ${gList[0].ingredient.foodType.units.unitName}`}</h6></div></li>
-                    <li className="list-option"><div className="innerDiv"><h6 className="list-font-size">Pay bills</h6><h6 className="list-font-size">Hello</h6></div></li>
-                    <li className="list-option"><div className="innerDiv"><h6 className="list-font-size">Meet George</h6><h6 className="list-font-size">Hello</h6></div></li>
-                    <li className="list-option"><div className="innerDiv"><h6 className="list-font-size">Buy eggs</h6><h6 className="list-font-size">Hello</h6></div></li>
-                    <li className="list-option"><div className="innerDiv"><h6 className="list-font-size">Read a book</h6><h6 className="list-font-size">Hello</h6></div></li>
-                    <li className="list-option"><div className="innerDiv"><h6 className="list-font-size">Organize office</h6><h6 className="list-font-size">Hello</h6></div></li>
+                    {gList.map(list => (
+                        <GroceryListItemComponent key={'list item- ' + list.id} groceryList={list} updateAmount={(e) => this.handleupdateAmount(e)} amount={this.props.groceries.amount} />
+                    ))}
                 </ul>
             </div>
         )
@@ -47,7 +50,8 @@ const mapStateToProps = (state: IState) => {
 }
 
 const mapDispatchToProps = {
-    getUserGroceryList: getUserGroceryList
+    getUserGroceryList: getUserGroceryList,
+    updateAmount: updateAmount
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GroceryComponent);

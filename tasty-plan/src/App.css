@@ -1,3 +1,7 @@
+/* Website color primary: #45bfb5
+Website color secondary: #e06f50
+Website background: #9ae681 */
+
 .App {
   text-align: center;
 }
@@ -242,6 +246,19 @@ a:hover{
   color: #ffff;
 }
 
+.display-left {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.user-welcome {
+  color: #fff;
+  text-decoration-line: underline;
+  margin-left: 15px;
+  font-size: 30px;
+}
+
 /*****************************GROCERY LIST*********************************/
 
 * {
@@ -301,10 +318,17 @@ a:hover{
   width: 7px;
 }
 
-/* Used to create the space the ingredient and the amount on the list */
+/* Used to create the space the ingredients and the amount on the list */
 .innerDiv {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.rightInnerDiv {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
 }
 
 .list-font-size {
@@ -338,4 +362,12 @@ a:hover{
   content: "";
   display: table;
   clear: both;
+}
+
+/* Controls the styling on the input text box */
+.ingredient-input {
+  width: 20%;
+  text-align: center;
+  margin-right: 10px;
+  border-radius: 15px;
 }

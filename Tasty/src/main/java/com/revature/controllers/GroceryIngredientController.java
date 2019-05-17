@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,6 +31,9 @@ public class GroceryIngredientController {
 	public List<GroceryIngredients> findByGroceryList(@PathVariable int gId) {
 		return groceryIngredientService.findByGroceryList(gId);
 	}
+	
+//	@PatchMapping()
+//	public GroceryIngredients updateGroceryIngredients(@RequestBody GroceryIngredie)
 	
 	@PostMapping()
 	public GroceryIngredients save(@RequestBody GroceryIngredients gIngredients) {

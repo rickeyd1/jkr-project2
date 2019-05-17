@@ -13,6 +13,7 @@ import { MealComponent } from './components/meal-component/meal.component';
 import history from './util/history';
 import  MenuContainer  from './components/menu-component/menu.container';
 import GroceryComponent from './components/grocery-component/grocery.component';
+import SignUpComponent from './components/log-component/sign-up.component';
 
 const App: React.FC = () => {
   return (
@@ -24,6 +25,7 @@ const App: React.FC = () => {
           <Route path="/grocery" component={GroceryComponent} />
           <Route path="/profile" component={ProfileComponent} />
           <Route path="/login" component={logInComponent} />
+          <Route path="/signup" component={SignUpComponent} />
           <Route path="/ingredient" component={IngredientComponent} />
           <Route path="/meal" component={MealComponent} />
           <Route exact path="/" component={logInComponent} />
