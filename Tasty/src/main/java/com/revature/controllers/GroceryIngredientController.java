@@ -8,26 +8,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.model.Groceries;
-import com.revature.services.GroceryService;
+import com.revature.model.GroceryIngredients;
+import com.revature.services.GroceryIngredientService;
 
 @RestController
-@RequestMapping("groceries")
-public class GroceryController {
+@RequestMapping("grocery/ingredients")
+public class GroceryIngredientController {
 	
 	@Autowired
-	private GroceryService groceryService;
+	private GroceryIngredientService groceryIngredientService;
 	
 	@GetMapping("{id}")
-	public Groceries findById(@PathVariable int id) {
-		return groceryService.findById(id);
+	public GroceryIngredients findById(@PathVariable int id) {
+		return groceryIngredientService.findById(id);
 	}
 	
 	@PostMapping()
-	public Groceries save(@RequestBody Groceries gList) {
-		return groceryService.save(gList);
+	public GroceryIngredients save(@RequestBody GroceryIngredients gIngredients) {
+		return groceryIngredientService.save(gIngredients);
 	}
-	
-	
-	
 }

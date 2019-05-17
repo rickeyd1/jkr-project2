@@ -1,9 +1,18 @@
 package com.revature.model;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.MapsId;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -14,53 +23,42 @@ public class Groceries {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "grocery_int")
 	private int groceryInt;
 	
 	@OneToOne
-	private Users userId;
-
+	private Users groceryUser;
+	
 	public Groceries() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Groceries(int groceryInt, Users userId) {
+	public Groceries(int groceryInt, Users groceryUser) {
 		super();
 		this.groceryInt = groceryInt;
-		this.userId = userId;
+		this.groceryUser = groceryUser;
 	}
 
-	/**
-	 * @return the groceryInt
-	 */
 	public int getGroceryInt() {
 		return groceryInt;
 	}
 
-	/**
-	 * @param groceryInt the groceryInt to set
-	 */
 	public void setGroceryInt(int groceryInt) {
 		this.groceryInt = groceryInt;
 	}
 
-	/**
-	 * @return the userId
-	 */
-	public Users getUserId() {
-		return userId;
+	public Users getGroceryUser() {
+		return groceryUser;
 	}
 
-	/**
-	 * @param userId the userId to set
-	 */
-	public void setUserId(Users userId) {
-		this.userId = userId;
+	public void setGroceryUser(Users groceryUser) {
+		this.groceryUser = groceryUser;
 	}
 
 	@Override
 	public String toString() {
-		return "Groceries [groceryInt=" + groceryInt + ", userId=" + userId + "]";
+		return "Groceries [groceryInt=" + groceryInt + ", groceryUser=" + groceryUser + "]";
 	}
 
 	@Override
@@ -68,7 +66,7 @@ public class Groceries {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + groceryInt;
-		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
+		result = prime * result + ((groceryUser == null) ? 0 : groceryUser.hashCode());
 		return result;
 	}
 
@@ -83,12 +81,14 @@ public class Groceries {
 		Groceries other = (Groceries) obj;
 		if (groceryInt != other.groceryInt)
 			return false;
-		if (userId == null) {
-			if (other.userId != null)
+		if (groceryUser == null) {
+			if (other.groceryUser != null)
 				return false;
-		} else if (!userId.equals(other.userId))
+		} else if (!groceryUser.equals(other.groceryUser))
 			return false;
 		return true;
 	}
+
+	
 	
 }

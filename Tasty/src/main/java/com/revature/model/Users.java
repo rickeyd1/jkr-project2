@@ -2,12 +2,15 @@ package com.revature.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
@@ -18,19 +21,14 @@ public class Users {
 	@Column(name = "user_id")
 	private int userId;
 	
-	@Column(name = "name", nullable = false)
 	private String name;
 	
-	@Column(name = "email", nullable = false, unique = true)
 	private String email;
 	
-	@Column(name = "username", nullable = false, unique = true)
 	private String username;
 	
-	@Column(name = "password", nullable = false)
 	private String password;
 	
-
 	@OneToOne
 	private Groceries groceryId;
 
@@ -39,7 +37,9 @@ public class Users {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Users(int userId, String username, String email, String password, String name, Groceries groceryId) {
+	@JsonCreator
+	public Users(@JsonProperty("userId") int userId, @JsonProperty("username") String username, @JsonProperty("email") String email, @JsonProperty("password") String password, @JsonProperty("name") String name, 
+			@JsonProperty("groceryId") Groceries groceryId) {
 		super();
 		this.userId = userId;
 		this.username = username;
