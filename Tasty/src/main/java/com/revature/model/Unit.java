@@ -17,45 +17,76 @@ public class Unit {
 	@Column(name = "unit_id")
 	private int unitId;
 	
-	@Column(name = "unit_name", nullable = false, unique = true)
+	@Column(name = "name", nullable = false, unique = true)
 	private String unitName;
+	
+	@Column(name = "amount", nullable = false)
+	private int amount;
 
 	public Unit() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Unit(int unitId, String unitName) {
+	public Unit(int unitId, String unitName, int amount) {
 		super();
 		this.unitId = unitId;
 		this.unitName = unitName;
+		this.amount = amount;
 	}
 
+	/**
+	 * @return the unitId
+	 */
 	public int getUnitId() {
 		return unitId;
 	}
 
+	/**
+	 * @param unitId the unitId to set
+	 */
 	public void setUnitId(int unitId) {
 		this.unitId = unitId;
 	}
 
+	/**
+	 * @return the unitName
+	 */
 	public String getUnitName() {
 		return unitName;
 	}
 
+	/**
+	 * @param unitName the unitName to set
+	 */
 	public void setUnitName(String unitName) {
 		this.unitName = unitName;
 	}
 
+	/**
+	 * @return the amount
+	 */
+	public int getAmount() {
+		return amount;
+	}
+
+	/**
+	 * @param amount the amount to set
+	 */
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
 	@Override
 	public String toString() {
-		return "Unit [unitId=" + unitId + ", unitName=" + unitName + "]";
+		return "Unit [unitId=" + unitId + ", unitName=" + unitName + ", amount=" + amount + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + amount;
 		result = prime * result + unitId;
 		result = prime * result + ((unitName == null) ? 0 : unitName.hashCode());
 		return result;
@@ -70,6 +101,8 @@ public class Unit {
 		if (getClass() != obj.getClass())
 			return false;
 		Unit other = (Unit) obj;
+		if (amount != other.amount)
+			return false;
 		if (unitId != other.unitId)
 			return false;
 		if (unitName == null) {
@@ -79,5 +112,4 @@ public class Unit {
 			return false;
 		return true;
 	}
-
 }

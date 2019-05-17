@@ -19,9 +19,6 @@ public class TimeOfTable {
 	@Column(name = "time_id")
 	private int timeId;
 	
-	@Column(name = "day", nullable = false, unique = true)
-	private String day;
-	
 	@Column(name = "time_name", nullable = false, unique = true)
 	private String timeName;
 
@@ -30,47 +27,16 @@ public class TimeOfTable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public TimeOfTable(int timeId, String day, String timeName) {
+	public TimeOfTable(int timeId, String timeName) {
 		super();
 		this.timeId = timeId;
-		this.day = day;
 		this.timeName = timeName;
-	}
-
-	public int getTimeId() {
-		return timeId;
-	}
-
-	public void setTimeId(int timeId) {
-		this.timeId = timeId;
-	}
-
-	public String getDay() {
-		return day;
-	}
-
-	public void setDay(String day) {
-		this.day = day;
-	}
-
-	public String getTimeName() {
-		return timeName;
-	}
-
-	public void setTimeName(String timeName) {
-		this.timeName = timeName;
-	}
-
-	@Override
-	public String toString() {
-		return "TimeOfTable [timeId=" + timeId + ", day=" + day + ", timeName=" + timeName + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((day == null) ? 0 : day.hashCode());
 		result = prime * result + timeId;
 		result = prime * result + ((timeName == null) ? 0 : timeName.hashCode());
 		return result;
@@ -85,11 +51,6 @@ public class TimeOfTable {
 		if (getClass() != obj.getClass())
 			return false;
 		TimeOfTable other = (TimeOfTable) obj;
-		if (day == null) {
-			if (other.day != null)
-				return false;
-		} else if (!day.equals(other.day))
-			return false;
 		if (timeId != other.timeId)
 			return false;
 		if (timeName == null) {
@@ -99,6 +60,25 @@ public class TimeOfTable {
 			return false;
 		return true;
 	}
-	
-	
+
+	public int getTimeId() {
+		return timeId;
+	}
+
+	public void setTimeId(int timeId) {
+		this.timeId = timeId;
+	}
+
+	public String getTimeName() {
+		return timeName;
+	}
+
+	public void setTimeName(String timeName) {
+		this.timeName = timeName;
+	}
+
+	@Override
+	public String toString() {
+		return "TimeOfTable [timeId=" + timeId + ", timeName=" + timeName + "]";
+	}
 }
