@@ -25,6 +25,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	@Secured
 	@GetMapping("{id}")
 	public Users findById(@PathVariable int id) {
 		return userService.findById(id);
@@ -44,5 +45,10 @@ public class UserController {
 		} else {
 			return new ResponseEntity<Users>(HttpStatus.BAD_REQUEST);
 		}
+	}
+	@PostMapping("/logout")
+	public ResponseEntity<Users> logout(@RequestBody CredentialDto credentials, HttpServletRequest req) {
+		req.getSession().removeAttribute("user");
+			return new ResponseEntity<Users>(HttpStatus.GONE);
 	}
 }

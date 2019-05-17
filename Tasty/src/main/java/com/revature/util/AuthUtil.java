@@ -14,4 +14,5 @@ public class AuthUtil {
 		HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 		return (Users) req.getSession().getAttribute("user");
 	}
+	
 }

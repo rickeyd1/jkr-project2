@@ -31,7 +31,7 @@ public class SessionAuthAspect {
 			return null;
 //			return new ResponseEntity<>("You are not authenticated", HttpStatus.UNAUTHORIZED);
 		} else {
-//			sec.roles() // compare with roles on current user if it had roles
+//			sec.roles() // Comparsion of roles
 			return pjp.proceed();
 		}
 	}
