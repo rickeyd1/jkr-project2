@@ -1,12 +1,13 @@
-import { Ingredient } from "./ingredient";
+import { User } from "./user";
 
-export class Grocery {
-    groceryId: number;
-    ingredient: Ingredient;
+export class Groceries {
+    groceryInt: number;
+    groceryUser: User;
+    
 
-    constructor(groceryId=0, ingredient=new Ingredient) {
-        this.groceryId = groceryId;
-        this.ingredient = ingredient;
-        
+    constructor(groceryInt= 0, groceryUser= undefined) {
+        this.groceryInt = groceryInt;
+        this.groceryUser = groceryUser;
     }
+    
 }

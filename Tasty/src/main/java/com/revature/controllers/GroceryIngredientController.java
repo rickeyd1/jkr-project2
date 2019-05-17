@@ -18,13 +18,15 @@ public class GroceryIngredientController {
 	@Autowired
 	private GroceryIngredientService groceryIngredientService;
 	
-	@GetMapping("{id}")
+	@GetMapping("key/{id}")
 	public GroceryIngredients findById(@PathVariable int id) {
+		GroceryIngredients gIngredients = groceryIngredientService.findById(id);
 		return groceryIngredientService.findById(id);
 	}
 	
 	@PostMapping()
 	public GroceryIngredients save(@RequestBody GroceryIngredients gIngredients) {
+		
 		return groceryIngredientService.save(gIngredients);
 	}
 }

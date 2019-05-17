@@ -1,11 +1,10 @@
 export class Unit {
-    mass: number;
-    measure: string;
-    amount: number;
+    unitId: number;
+    unitName: String;
 
-    constructor(mass=0, measure='', amount=0) {
-        this.mass = mass;
-        this.measure = measure;
-        this.amount = amount;
+    constructor(unitId = 0, unitName = '') {
+        this.unitId = unitId;
+        this.unitName = unitName;
     }
+    
 }

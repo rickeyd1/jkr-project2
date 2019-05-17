@@ -1,20 +1,20 @@
-import { Grocery } from "./grocery";
+import { Groceries } from "./grocery";
 
 export class User {
     userId: number;
-    username: string;
-    password: string;
-    name: string;
-    email: string;
-    groceryList: Grocery;
+    name: String;
+    email: String;
+    username: String;
+    password: String;
+    groceryId: Groceries;
 
-    constructor(userId=0, username='', password='', name='', email='', groceryList=new Grocery) {
+    constructor(userId=0, name='', email='', username='', password='', groceryId: undefined) {
         this.userId = userId;
         this.username = username;
         this.password = password;
         this.name = name;
         this.email = email;
-        this.groceryList = groceryList;
+        this.groceryId = groceryId;
         
     }
 

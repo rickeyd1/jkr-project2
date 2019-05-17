@@ -1,15 +1,15 @@
-import { IngredientType } from "./ingredientType";
+import { FoodType } from "./foodType";
 
-export class Ingredient {
-    ingredientId: number;
-    ingredientName: string;
-    ingredientType: IngredientType;
+export class Ingredients {
+    ingredientsId: number;
+    name: String;
     calories: number;
+    foodType: FoodType;
 
-    constructor(ingredientId=0, ingredientName='', ingredientType=new IngredientType, calories=0) {
-        this.ingredientId = ingredientId;
-        this.ingredientName = ingredientName;
-        this.ingredientType = ingredientType;
-        this.calories =  calories;
+    constructor(ingredientsId = 0, name = '', calories = 0, foodType = undefined) {
+        this.ingredientsId = ingredientsId;
+        this.name = name;
+        this.calories = calories;
+        this.foodType = foodType;
     }
 }

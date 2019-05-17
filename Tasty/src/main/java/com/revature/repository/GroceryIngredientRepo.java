@@ -7,5 +7,6 @@ import com.revature.model.GroceryIngredients;
 
 @Repository
 public interface GroceryIngredientRepo extends JpaRepository<GroceryIngredients, Integer> {
-
+	
+	GroceryIngredients findById (int id);
 }

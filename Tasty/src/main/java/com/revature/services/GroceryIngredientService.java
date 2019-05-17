@@ -17,6 +17,6 @@ public class GroceryIngredientService {
 	}
 
 	public GroceryIngredients findById(int id) {
-		return groceryIngredientRepo.getOne(id);
+		return groceryIngredientRepo.findById(id);
 	}
 }
