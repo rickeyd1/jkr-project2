@@ -8,6 +8,7 @@ import { groceryReducer } from "./grocery.reducer";
 import { recipeReducer } from "./recipe.reducer";
 import { User } from "../model/user";
 import { loginReducer } from './login.reducer';
+import { Recipe } from '../model/recipe';
 
 
 export interface IDumState {
@@ -26,6 +27,7 @@ export interface IRecipeState {
     user? : User,
     ingredient?: Ingredient,
     displayMessage?: String
+    recipeList : Recipe[]
 }
 
 export interface IMealState {

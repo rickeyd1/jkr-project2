@@ -13,17 +13,13 @@ export class NavComponent extends React.Component {
         <div className=" navbar-collapse" id="navbarsExample04">
           <ul className="navbar-nav ml-auto margin-nav">
             <li className="nav-item active">
-              <Link to="/recipe" className="unset-anchor nav-link">Recipe</Link>
-            </li>
-            <li className="nav-item active">
               <Link to="/sign-in" className="unset-anchor nav-link">Sign In</Link>
             </li>
             <li className="nav-item active dropdown">
-              <div className="nav-link dropdown-toggle pointer" id="examples-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Employees</div>
+              <div className="nav-link dropdown-toggle pointer" id="examples-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Recipes</div>
               <div className="dropdown-menu" aria-labelledby="examples-dropdown">
-                <div className="dropdown-item"><Link to="/users" className="unset-anchor nav-link active">All Employees</Link></div>
-                <div className="dropdown-item"><Link to="/userById" className="unset-anchor nav-link active">By ID</Link></div>
-                <div className="dropdown-item"><Link to="/updateEmployee" className="unset-anchor nav-link active">Update Employee data</Link></div>
+                <div className="dropdown-item"><Link to="/allRecipes" className="unset-anchor nav-link active">All Recipes</Link></div>
+                <div className="dropdown-item"><Link to="/recipe" className="unset-anchor nav-link active">Create Recipe</Link></div>
               </div>
             </li>
             <li className="nav-item active dropdown">

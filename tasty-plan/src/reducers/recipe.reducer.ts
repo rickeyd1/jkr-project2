@@ -7,7 +7,8 @@ const initialState: IRecipeState = {
     totalcalorie: 0,
     user: undefined,
     ingredient: undefined,
-    displayMessage: undefined
+    displayMessage: undefined,
+    recipeList: []
 }
 
 export const recipeReducer = (state = initialState, action) => {
@@ -29,6 +30,7 @@ export const recipeReducer = (state = initialState, action) => {
                 recipeName : action.payload.recipeName
             }
         default:
+            break;
     }
     return state;
 }
