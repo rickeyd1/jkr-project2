@@ -11,8 +11,8 @@ import logInComponent from './components/log-component/log-in.component';
 import { IngredientComponent } from './components/ingredient-component/ingredient.component';
 import { MealComponent } from './components/meal-component/meal.component';
 import history from './util/history';
-import { GroceryComponent } from './components/grocery-component/grocery.component';
 import  MenuContainer  from './components/menu-component/menu.container';
+import GroceryComponent from './components/grocery-component/grocery.component';
 
 const App: React.FC = () => {
   return (

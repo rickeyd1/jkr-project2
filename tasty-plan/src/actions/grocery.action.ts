@@ -1,33 +1,32 @@
+import { User } from "../model/user";
+
 export const groceryType = {
-    GROCERY_SUCCESS: 'GROCERY_SUCCESS_UPDATE',
-    GROCERY_FAILED: 'GROCERY_FAILED_UPDATE',
-    GROCERY_UPDATE: 'GROCERY_UPDATE'
+    GET_LIST: 'GET_LIST',
 }
 
-export const grocery = () => async (dispatch) => {
-    //Grocery list will be updated and sent to the state store through
-    //the dispatcher.
+export const getUserGroceryList = () => async (dispatch) => {
     try {
-        const resp = await fetch('I AM FETCHING UPDATED LIST', {
-            method: 'GET',
+        // Gets the current user's grocery list by their id.
+        const resp = await fetch('http://localhost:8080/groceries/user/1', {
             credentials: 'include'
+        });
+        const body = await resp.json();
+
+        // Second fetch call will get the junction table between grocery list and ingredients to
+        // allow us access to the ingredients associated with a user's grocery list.
+        const resp2 = await fetch('http://localhost:8080/grocery/ingredients/lists/' + body[0].groceryInt, {
+            credentials: 'include'
+        });
+        const body2 = await resp2.json();
+        // console.log(`${body2[0].ingredient.name}: ${body2[0].amount} ${body2[0].ingredient.foodType.units.unitName}`);
+        dispatch({
+            payload: {
+                groceryList: body2
+            },
+            type: groceryType.GET_LIST
         })
 
-        if(resp.status === 401) {
-            dispatch = {
-                type: groceryType.GROCERY_UPDATE
-            }
-        } else if (resp.status === 200) {
-            dispatch = {
-                type: groceryType.GROCERY_SUCCESS
-                // payload will be added here. soon
-            }
-        } else {
-            dispatch = {
-                type: groceryType.GROCERY_FAILED
-            }
-        }
     } catch (err) {
-        console.trace(err);
+        console.log(err);
     }
 }

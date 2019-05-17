@@ -1,5 +1,7 @@
 package com.revature.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,4 +22,10 @@ public class GroceryService {
 		// TODO Auto-generated method stub
 		return groceryRepo.getOne(id);
 	}
+
+	public List<Groceries> findByGroceryUser(int uId) {
+		return groceryRepo.findByGroceryUserUserId(uId);
+	}
+	
+	
 }

@@ -1,5 +1,7 @@
 package com.revature.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +24,11 @@ public class GroceryIngredientController {
 	public GroceryIngredients findById(@PathVariable int id) {
 		GroceryIngredients gIngredients = groceryIngredientService.findById(id);
 		return groceryIngredientService.findById(id);
+	}
+	
+	@GetMapping("lists/{gId}")
+	public List<GroceryIngredients> findByGroceryList(@PathVariable int gId) {
+		return groceryIngredientService.findByGroceryList(gId);
 	}
 	
 	@PostMapping()

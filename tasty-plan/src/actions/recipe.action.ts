@@ -1,4 +1,4 @@
-import { Ingredient } from "../model/ingredient";
+import { Ingredients } from "../model/ingredient";
 
 export const recipeType = {
     NO_INGREDIENTS: 'NO_INGREDIENT',
@@ -6,7 +6,7 @@ export const recipeType = {
     RECIPE_FAILED: 'RECIPE_FAILED',
 }
 
-export const recipeSet = (ingredient: Ingredient, totalCalories: number) => async (dispatch) => {
+export const recipeSet = (ingredient: Ingredients, totalCalories: number) => async (dispatch) => {
     try {
         const resp = await fetch('FETCHING_RECIPES', {
             method: 'POST',

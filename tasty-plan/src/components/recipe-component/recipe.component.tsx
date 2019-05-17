@@ -1,17 +1,17 @@
 import React, { Component } from "react";
-import { Ingredient } from "../../model/ingredient";
+import { Ingredients } from "../../model/ingredient";
 import { IState } from "../../reducers";
 import { recipeSet } from "../../actions/recipe.action";
 import { connect } from "react-redux";
 import '../../includes/bootstrap';
 
 interface IRecipeState {
-    ingredient: Ingredient[];
+    ingredient: Ingredients[];
     totalCalories: number;
 }
 
 interface IRecipeProps {
-    ingredient: Ingredient
+    ingredient: Ingredients
     totalCalories: number
 
 }
