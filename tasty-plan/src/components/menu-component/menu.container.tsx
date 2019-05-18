@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Component } from 'react';
 import { IMenuState, IState, ILoginState } from '../../reducers';
 import { toggleMenu } from '../../actions/menu.actions';
 import { MenuButton } from './menu.button';
@@ -31,7 +30,9 @@ class MenuContainer extends React.Component<MenuContainerProps> {
                 <div className="navbar-header c-pointer shift-left">
                     <div className="display-left">
                         <MenuButton handleMouseDown={(e) => this.handleMouseDown(e)} />
-                        <label className="user-welcome">{`Hello ${user.username}!`}</label>
+                        {
+                            user && <label className="user-welcome">{`Hello ${user.username}!`}</label>
+                        }
                     </div>
                     <MenuComponent handleMouseDown={(e) => this.handleMouseDown(e)} menuVisibility={visible}/>
                 </div>

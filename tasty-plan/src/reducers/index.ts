@@ -3,7 +3,6 @@ import { dummyReducer } from "./dummy.reducer"
 import { Ingredients } from "../model/ingredient";
 import { ingredientReducer } from "./ingredient.reducer";
 import { Recipe } from "../model/recipe";
-import { Groceries } from "../model/grocery";
 import { groceryReducer } from "./grocery.reducer";
 import { recipeReducer } from "./recipe.reducer";
 import { User } from "../model/user";
@@ -23,7 +22,6 @@ export interface IMenuState{
 
 export interface IGroceryState {
     groceryList: GroceryIngredients[];
-    amount: number;
 }
 
 export interface IIngredientState {

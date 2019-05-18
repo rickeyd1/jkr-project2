@@ -35,7 +35,7 @@ export const createUser = (name: string, email: string, username: string, passwo
     }
 
     // Fetch call to create a grocery list for that user
-    const gResp = await fetch('http://localhost:8080/groceries', {
+    await fetch('http://localhost:8080/groceries', {
       method: 'POST',
       credentials: 'include',
       body: JSON.stringify(newList),

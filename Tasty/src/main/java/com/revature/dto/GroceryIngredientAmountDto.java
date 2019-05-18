@@ -1,6 +1,7 @@
 package com.revature.dto;
 
 public class GroceryIngredientAmountDto {
+	private int id;
 	private int amount;
 
 	public GroceryIngredientAmountDto() {
@@ -8,9 +9,18 @@ public class GroceryIngredientAmountDto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public GroceryIngredientAmountDto(int amount) {
+	public GroceryIngredientAmountDto(int id, int amount) {
 		super();
+		this.id = id;
 		this.amount = amount;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getAmount() {
@@ -23,7 +33,7 @@ public class GroceryIngredientAmountDto {
 
 	@Override
 	public String toString() {
-		return "GroceryIngredientAmountDto [amount=" + amount + "]";
+		return "GroceryIngredientAmountDto [id=" + id + ", amount=" + amount + "]";
 	}
 
 	@Override
@@ -31,6 +41,7 @@ public class GroceryIngredientAmountDto {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + amount;
+		result = prime * result + id;
 		return result;
 	}
 
@@ -44,6 +55,8 @@ public class GroceryIngredientAmountDto {
 			return false;
 		GroceryIngredientAmountDto other = (GroceryIngredientAmountDto) obj;
 		if (amount != other.amount)
+			return false;
+		if (id != other.id)
 			return false;
 		return true;
 	}

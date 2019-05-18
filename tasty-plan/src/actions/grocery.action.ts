@@ -2,13 +2,61 @@ import { User } from "../model/user";
 
 export const groceryType = {
     GET_LIST: 'GET_LIST',
-    UPDATE_AMOUNT: 'UPDATE_AMOUNT'
+    LIST_UPDATE: 'LIST_UPDATE',
+    ENTRY_DELETE: 'ENTRY_DELETE'
 }
 
-export const getUserGroceryList = () => async (dispatch) => {
+export const deleteGroceryIngredient = (id: number) => async (dispatch) => {
+    try {
+        const resp = await fetch('http://localhost:8080/grocery/ingredients/' + id, {
+            method: 'DELETE',
+            credentials: 'include'
+        });
+
+        const body = await resp.json();
+        console.log(body);
+
+        dispatch({
+            type: groceryType.ENTRY_DELETE
+        })
+
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+export const updateGroceryIngredient = (amount: number, id: number) => async (dispatch) => {
+    try {
+        const updateObj = {
+            id: id,
+            amount: amount 
+        }
+
+        const resp = await fetch('http://localhost:8080/grocery/ingredients', {
+            method: 'PATCH',
+            credentials: 'include',
+            body: JSON.stringify(updateObj),
+            headers: {
+                'content-type': 'application/json'
+            }
+        });
+
+        const body = await resp.json();
+        console.log(body);
+
+        dispatch({
+            type: groceryType.LIST_UPDATE
+        });
+
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+export const getUserGroceryList = (user: User) => async (dispatch) => {
     try {
         // Gets the current user's grocery list by their id.
-        const resp = await fetch('http://localhost:8080/groceries/user/1', {
+        const resp = await fetch('http://localhost:8080/groceries/user/' + user.userId, {
             credentials: 'include'
         });
         const body = await resp.json();
@@ -25,18 +73,9 @@ export const getUserGroceryList = () => async (dispatch) => {
                 groceryList: body2
             },
             type: groceryType.GET_LIST
-        })
+        });
 
     } catch (err) {
         console.log(err);
     }
-}
-
-export const updateAmount = (event) => async (dispatch) => {
-    dispatch({
-        payload: {
-            amount: event.target.value
-        },
-        type: groceryType.UPDATE_AMOUNT
-    })
 }

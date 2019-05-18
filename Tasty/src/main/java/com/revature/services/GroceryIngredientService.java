@@ -23,6 +23,10 @@ public class GroceryIngredientService {
 	}
 
 	public List<GroceryIngredients> findByGroceryList(int gId) {
-		return groceryIngredientRepo.findByGroceryListGroceryInt(gId);
+		return groceryIngredientRepo.findByGroceryListGroceryIntOrderByIdAsc(gId);
+	}
+
+	public void deleteEntry(GroceryIngredients entry) {
+		groceryIngredientRepo.delete(entry);
 	}
 }

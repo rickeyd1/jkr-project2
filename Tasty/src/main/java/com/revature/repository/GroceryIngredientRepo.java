@@ -12,5 +12,6 @@ public interface GroceryIngredientRepo extends JpaRepository<GroceryIngredients,
 	
 	GroceryIngredients findById (int id);
 
-	List<GroceryIngredients> findByGroceryListGroceryInt(int gId);
+	List<GroceryIngredients> findByGroceryListGroceryIntOrderByIdAsc(int gId);
+	
 }

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Component } from 'react';
 import { ISignUpState, IState } from '../../reducers';
 import history from '../../util/history';
 import { connect } from 'react-redux';
@@ -51,7 +50,6 @@ class SignUpComponent extends React.Component<SignUpComponentProps> {
                         <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Finish Registration</button>
                     </form>
                     <br />
-                    <h6 className="text-center"></h6>
                 </div>
                 </div>
             </div>

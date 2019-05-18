@@ -2,8 +2,7 @@ import { IGroceryState } from ".";
 import { groceryType } from '../actions/grocery.action';
 
 const initialState: IGroceryState = {
-    groceryList: [],
-    amount: 0
+    groceryList: []
 }
 
 export const groceryReducer = (state = initialState, action) => {
@@ -15,10 +14,13 @@ export const groceryReducer = (state = initialState, action) => {
                 ...state,
                 groceryList: action.payload.groceryList
             }
-        case groceryType.UPDATE_AMOUNT:
+        case groceryType.LIST_UPDATE:
             return {
-                ...state,
-                amount: action.payload.amount
+                ...state
+            }
+        case groceryType.ENTRY_DELETE:
+            return {
+                ...state
             }
         default:
             break;

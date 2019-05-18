@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, Router } from 'react-router-dom';
+import { Route, Router } from 'react-router-dom';
 import './includes/bootstrap';
 import './App.css';
 import { Provider } from 'react-redux';
