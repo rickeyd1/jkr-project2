@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, Router } from 'react-router-dom';
+import { BrowserRouter, Route, Router } from 'react-router-dom';
 import './includes/bootstrap';
 import './App.css';
 import { Provider } from 'react-redux';
@@ -15,6 +15,7 @@ import history from './util/history';
 const App: React.FC = () => {
   return (
     <Provider store={store}>
+      <BrowserRouter>
       <Router history={history}>
         <Route path='/dummy' component={DummyComponent} />
         <Route path="/recipe" component={RecipeComponent} />
@@ -24,6 +25,7 @@ const App: React.FC = () => {
         <Route path="/meal" component={MealComponent} />
         <Route exact path="/" component={logInComponent} />
       </Router>
+      </BrowserRouter>
     </Provider>
   );
 }
