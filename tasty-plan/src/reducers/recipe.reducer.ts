@@ -5,6 +5,7 @@ const initialState: IRecipeState = {
     recipeId: 0,
     recipeName: '',
     totalcalorie: 0,
+    category : 0,
     user: undefined,
     ingredient: undefined,
     displayMessage: undefined,
@@ -12,12 +13,11 @@ const initialState: IRecipeState = {
 }
 
 export const recipeReducer = (state = initialState, action) => {
-
     switch (action.type) {
-        case recipeType.RECIPE_SUCCESS:
+        case recipeType.ALL_RECIPES_SUCCESS:
             return {
                 ...state,
-                recipe: action.payload.recipe,
+                recipeList: action.payload.recipe,
             }
         case recipeType.CALORY_UPDATED:
             return {
@@ -27,7 +27,12 @@ export const recipeReducer = (state = initialState, action) => {
         case recipeType.RECIPE_NAME_UPDATED:
             return {
                 ...state,
-                recipeName : action.payload.recipeName
+                recipeName: action.payload.recipeName
+            }
+        case recipeType.CATEGORY_UPDATED:
+            return {
+                ...state,
+                category : action.payload.category
             }
         default:
             break;

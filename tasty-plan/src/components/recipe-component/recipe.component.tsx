@@ -1,38 +1,24 @@
 import React, { Component } from "react";
 import { IState, IRecipeState } from "../../reducers";
-import { recipeSet, setRecipeName, setCalories } from "../../actions/recipe.action";
+import { recipeSet, setRecipeName, setCalories, setCategory } from "../../actions/recipe.action";
 import { connect } from "react-redux";
 import '../../includes/bootstrap';
+import { Category } from "../../model/category";
 
 interface IRecipeProps {
     recipe: IRecipeState,
-    recipeSet: (recipeId: number, recipeName: string, totalcalorie: number, category: undefined, user: undefined, meal: undefined) => void,
+    recipeSet: (recipeId: number, recipeName: string, totalcalorie: number, category: number, user: undefined, meal: undefined) => void,
     setCalories: (e) => void,
-    setRecipeName: (e) => void
-
+    setRecipeName: (e) => void,
+    setCategory : (e) => void
 }
 class RecipeComponent extends Component<IRecipeProps> {
-    //Grabbing current Recipe from user session
-    componentDidMount = async () => {
-
-    }
-
-    //Storing the new Recipe
+    
     SendNewRecipe = (e) => {
         e.preventDefault();
-        this.props.recipeSet(0, this.props.recipe.recipeName, this.props.recipe.totalcalorie, undefined, undefined, undefined)
+        this.props.recipeSet(0, this.props.recipe.recipeName, this.props.recipe.totalcalorie, this.props.recipe.category, undefined, undefined)
         console.log('Submitted');
     }
-    //Adding Ingreident to Recipe
-    addIngredient = (e) => {
-
-    }
-
-    //Removing Ingredient from Recipe
-    removeIngredient = (e) => {
-
-    }
-
 
     render() {
         const { recipeName, totalcalorie } = this.props.recipe;
@@ -54,6 +40,12 @@ class RecipeComponent extends Component<IRecipeProps> {
                                 <input type="text" className="form-control" id="exampleInputUserid" placeholder="Calories"
                                     value={totalcalorie} onChange={(event) => this.props.setCalories(event)} />
                             </div>
+
+                             <div>
+                                <label htmlFor="exampleInputId">Category : </label>
+                                <input type="text" className="form-control" id="exampleInputUserid" placeholder="Food Category"
+                                    onChange={(event) => this.props.setCategory(event)} />
+                            </div>
                         </div>
 
                         <button type="submit" className="btn btn-primary">Submit</button>
@@ -73,7 +65,8 @@ const mapStateToProps = (state: IState) => {
 const mapDispatchToProps = {
     recipeSet: recipeSet,
     setCalories: setCalories,
-    setRecipeName: setRecipeName
+    setRecipeName: setRecipeName,
+    setCategory : setCategory
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipeComponent)

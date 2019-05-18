@@ -33,22 +33,18 @@ public class Recipe {
 	@ManyToOne
 	private Users user;
 	
-	@ManyToMany
-	private List<Meal> meal;
-	
 	public Recipe() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Recipe(int recipeId, String recipeName, int calories, Category category, Users user, List<Meal> meal) {
+	public Recipe(int recipeId, String recipeName, int calories, Category category, Users user) {
 		super();
 		this.recipeId = recipeId;
 		this.recipeName = recipeName;
 		this.calories = calories;
 		this.category = category;
 		this.user = user;
-		this.meal = meal;
 	}
 
 	public int getRecipeId() {
@@ -91,12 +87,10 @@ public class Recipe {
 		this.user = user;
 	}
 
-	public List<Meal> getMeal() {
-		return meal;
-	}
-
-	public void setMeal(List<Meal> meal) {
-		this.meal = meal;
+	@Override
+	public String toString() {
+		return "Recipe [recipeId=" + recipeId + ", recipeName=" + recipeName + ", calories=" + calories + ", category="
+				+ category + ", user=" + user + "]";
 	}
 
 	@Override
@@ -105,7 +99,6 @@ public class Recipe {
 		int result = 1;
 		result = prime * result + calories;
 		result = prime * result + ((category == null) ? 0 : category.hashCode());
-		result = prime * result + ((meal == null) ? 0 : meal.hashCode());
 		result = prime * result + recipeId;
 		result = prime * result + ((recipeName == null) ? 0 : recipeName.hashCode());
 		result = prime * result + ((user == null) ? 0 : user.hashCode());
@@ -128,11 +121,6 @@ public class Recipe {
 				return false;
 		} else if (!category.equals(other.category))
 			return false;
-		if (meal == null) {
-			if (other.meal != null)
-				return false;
-		} else if (!meal.equals(other.meal))
-			return false;
 		if (recipeId != other.recipeId)
 			return false;
 		if (recipeName == null) {
@@ -147,13 +135,4 @@ public class Recipe {
 			return false;
 		return true;
 	}
-
-	@Override
-	public String toString() {
-		return "Recipe [recipeId=" + recipeId + ", recipeName=" + recipeName + ", calories=" + calories + ", category="
-				+ category + ", user=" + user + ", meal=" + meal + "]";
-	}
-
-	
-	
 }

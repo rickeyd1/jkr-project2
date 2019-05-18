@@ -9,6 +9,7 @@ import { recipeReducer } from "./recipe.reducer";
 import { User } from "../model/user";
 import { loginReducer } from './login.reducer';
 import { Recipe } from '../model/recipe';
+import { Category } from '../model/category';
 
 
 export interface IDumState {
@@ -24,6 +25,7 @@ export interface IRecipeState {
     recipeId?: number,
     recipeName? : string,
     totalcalorie?: number,
+    category? : number,
     user? : User,
     ingredient?: Ingredient,
     displayMessage?: String
@@ -53,7 +55,7 @@ export interface IState {
     ingre: IIngredientState,
     grocery: IGroceryState,
     recipe: IRecipeState,
-    login: ILoginState,
+    login: ILoginState
 }
 
 export const state = combineReducers<IState>({

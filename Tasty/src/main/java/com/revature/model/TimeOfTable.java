@@ -31,53 +31,43 @@ public class TimeOfTable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	public TimeOfTable(int timeId, String day, String timeName) {
+	public TimeOfTable(int timeId, String timeName, List<DateMeal> daydate) {
 		super();
 		this.timeId = timeId;
-		this.day = day;
 		this.timeName = timeName;
+		this.daydate = daydate;
 	}
-
 	public int getTimeId() {
 		return timeId;
 	}
-
 	public void setTimeId(int timeId) {
 		this.timeId = timeId;
 	}
-
-	public String getDay() {
-		return day;
-	}
-
-	public void setDay(String day) {
-		this.day = day;
-	}
-
 	public String getTimeName() {
 		return timeName;
 	}
-
 	public void setTimeName(String timeName) {
 		this.timeName = timeName;
 	}
-
+	public List<DateMeal> getDaydate() {
+		return daydate;
+	}
+	public void setDaydate(List<DateMeal> daydate) {
+		this.daydate = daydate;
+	}
 	@Override
 	public String toString() {
-		return "TimeOfTable [timeId=" + timeId + ", day=" + day + ", timeName=" + timeName + "]";
+		return "TimeOfTable [timeId=" + timeId + ", timeName=" + timeName + ", daydate=" + daydate + "]";
 	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((day == null) ? 0 : day.hashCode());
+		result = prime * result + ((daydate == null) ? 0 : daydate.hashCode());
 		result = prime * result + timeId;
 		result = prime * result + ((timeName == null) ? 0 : timeName.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -87,10 +77,10 @@ public class TimeOfTable {
 		if (getClass() != obj.getClass())
 			return false;
 		TimeOfTable other = (TimeOfTable) obj;
-		if (day == null) {
-			if (other.day != null)
+		if (daydate == null) {
+			if (other.daydate != null)
 				return false;
-		} else if (!day.equals(other.day))
+		} else if (!daydate.equals(other.daydate))
 			return false;
 		if (timeId != other.timeId)
 			return false;
@@ -101,6 +91,6 @@ public class TimeOfTable {
 			return false;
 		return true;
 	}
-	
+
 	
 }

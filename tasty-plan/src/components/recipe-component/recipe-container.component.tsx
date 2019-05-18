@@ -16,12 +16,17 @@ class RecipeContainer extends React.Component<IRecipeCardProps> {
     }
 
     render() {
+
+        const recipeList = this.props.recipes.recipeList;
         return (
             <>
-                <h1>Hi</h1>
-                {/* {this.props.recipes.recipeList.map(currRecipe => (
-                    currRecipe && <RecipeCard key={'recipe-' + currRecipe.recipeId} recipes={currRecipe} />
-                ))} */}
+                <div>
+                    { recipeList &&
+                        recipeList.map(currRecipe => (
+                            <RecipeCard key={'recipe-' + currRecipe.recipeId} recipes={currRecipe}/>
+                        ))
+                    }
+                </div>
             </>
             /* <div className="card text-white bg-success mb-3 card-recipe container">
                     <div className="card-header">{this.props.recipes.recipe.recip}</div>
@@ -37,7 +42,7 @@ class RecipeContainer extends React.Component<IRecipeCardProps> {
 
 const mapStateToProps = (state: IState) => {
     return {
-        recipe: state.recipe
+        recipes: state.recipe
     }
 }
 
