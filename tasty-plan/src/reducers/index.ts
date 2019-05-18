@@ -10,6 +10,7 @@ import { User } from "../model/user";
 import { loginReducer } from './login.reducer';
 import { menuReducer } from './menuReducer';
 import { GroceryIngredients } from '../model/grocery-ingredients';
+import { signupReducer } from './sign-up.reducer';
 
 
 export interface IDumState {
@@ -42,13 +43,21 @@ export interface ILoginState {
     errorMessage: string;
 }
 
+export interface ISignUpState {
+    name: string;
+    email: string;
+    username: string;
+    password: string;
+}
+
 export interface IState {
     dum: IDumState,
     ingre: IIngredientState,
     groceries: IGroceryState,
     recipe: IRecipeState,
     login: ILoginState,
-    menu: IMenuState
+    menu: IMenuState,
+    signup: ISignUpState
 }
 
 export const state = combineReducers<IState>({
@@ -57,5 +66,6 @@ export const state = combineReducers<IState>({
     groceries: groceryReducer,
     recipe: recipeReducer,
     login: loginReducer,
-    menu: menuReducer
+    menu: menuReducer,
+    signup: signupReducer
 })

@@ -29,24 +29,64 @@ public class Users {
 	
 	private String password;
 	
-	@OneToOne
-	private Groceries groceryId;
-
 	public Users() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	@JsonCreator
-	public Users(@JsonProperty("userId") int userId, @JsonProperty("username") String username, @JsonProperty("email") String email, @JsonProperty("password") String password, @JsonProperty("name") String name, 
-			@JsonProperty("groceryId") Groceries groceryId) {
+	public Users(int userId, String name, String email, String username, String password) {
 		super();
 		this.userId = userId;
-		this.username = username;
-		this.email = email;
-		this.password = password;
 		this.name = name;
-		this.groceryId = groceryId;
+		this.email = email;
+		this.username = username;
+		this.password = password;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	@Override
+	public String toString() {
+		return "Users [userId=" + userId + ", name=" + name + ", email=" + email + ", username=" + username
+				+ "]";
 	}
 
 	@Override
@@ -54,7 +94,6 @@ public class Users {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((groceryId == null) ? 0 : groceryId.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + userId;
@@ -76,11 +115,6 @@ public class Users {
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
-		if (groceryId == null) {
-			if (other.groceryId != null)
-				return false;
-		} else if (!groceryId.equals(other.groceryId))
-			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -100,97 +134,6 @@ public class Users {
 			return false;
 		return true;
 	}
-
-	/**
-	 * @return the userId
-	 */
-	public int getUserId() {
-		return userId;
-	}
-
-	/**
-	 * @param userId the userId to set
-	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-	/**
-	 * @return the username
-	 */
-	public String getUsername() {
-		return username;
-	}
-
-	/**
-	 * @param username the username to set
-	 */
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
-
-	/**
-	 * @param email the email to set
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	/**
-	 * @return the password
-	 */
-	public String getPassword() {
-		return password;
-	}
-
-	/**
-	 * @param password the password to set
-	 */
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/**
-	 * @return the groceryId
-	 */
-	public Groceries getGroceryId() {
-		return groceryId;
-	}
-
-	/**
-	 * @param groceryId the groceryId to set
-	 */
-	public void setGroceryId(Groceries groceryId) {
-		this.groceryId = groceryId;
-	}
-
-	@Override
-	public String toString() {
-		return "User [userId=" + userId + ", username=" + username + ", email=" + email
-				+ ", name=" + name + ", groceryId=" + groceryId + "]";
-	}
-	
 	
 	
 }

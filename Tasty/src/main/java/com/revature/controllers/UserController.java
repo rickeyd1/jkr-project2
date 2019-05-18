@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.aop.Secured;
 import com.revature.dto.CredentialDto;
+import com.revature.model.Groceries;
 import com.revature.model.Users;
 import com.revature.services.UserService;
 
@@ -32,7 +33,6 @@ public class UserController {
 		return userService.findById(id);
 	}
 	
-	@Secured
 	@PostMapping()
 	public Users save(@RequestBody Users u) { 
 		return userService.save(u);
@@ -70,5 +70,11 @@ public class UserController {
 		} else {
 			return new ResponseEntity<Users>(HttpStatus.BAD_REQUEST);
 		}
+	}
+	
+	@PostMapping("/logout")
+	public ResponseEntity<Users> logout(@RequestBody CredentialDto credentials, HttpServletRequest req) {
+		req.getSession().removeAttribute("user");
+			return new ResponseEntity<Users>(HttpStatus.GONE);
 	}
 }

@@ -6,15 +6,13 @@ export class User {
     email: String;
     username: String;
     password: String;
-    groceryId: Groceries;
 
-    constructor(userId=0, name='', email='', username='', password='', groceryId: undefined) {
+    constructor(userId=0, name='', email='', username='', password='') {
         this.userId = userId;
-        this.username = username;
-        this.password = password;
         this.name = name;
         this.email = email;
-        this.groceryId = groceryId;
+        this.username = username;
+        this.password = password;
         
     }
 
