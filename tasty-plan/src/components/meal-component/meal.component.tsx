@@ -37,9 +37,11 @@ export class MealComponent extends Component<IMealProps, IMealState> {
     }
 
     render() {
-       
+        const stylesObj = {
+            background: '#9ae681'
+        };
         return (
-            <div>
+            <div style={stylesObj} className="mainCOntainer">
                 <div className="container-fluid" id="main">
                     <div className="row row-offcanvas row-offcanvas-left">
                     </div>
