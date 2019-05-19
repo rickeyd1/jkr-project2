@@ -18,9 +18,13 @@ class RecipeContainer extends React.Component<IRecipeCardProps> {
     render() {
 
         const recipeList = this.props.recipes.recipeList;
+        const stylesObj = {
+            background: '#9ae681'
+        };
+
         return (
             <>
-                <div>
+                <div style={stylesObj} className="mainContainer">
                     { recipeList &&
                         recipeList.map(currRecipe => (
                             <RecipeCard key={'recipe-' + currRecipe.recipeId} recipes={currRecipe}/>

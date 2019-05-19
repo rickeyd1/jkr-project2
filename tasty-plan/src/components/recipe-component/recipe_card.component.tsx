@@ -2,27 +2,30 @@
 import * as React from 'react';
 import { Recipe } from '../../model/recipe';
 
-export interface RecipeProps {
+interface RecipeProps {
     recipes : Recipe;
 }
 
 export class RecipeCard extends React.Component<RecipeProps> {
 
     buttonClicked = (e) => {
-
+        e.preventDefault();
+        
     }
 
     render() {
         return (
             <>
-                <div className="card-header card-tab card-header-shadow">{this.props.recipes.recipeName}</div>
-                <div className="card text-white bg-success">
-                    <div className="card-body">
-                        <h6 className="card-text">Total Calories : {this.props.recipes.calories}</h6>
-                        <h6 className="card-text">User : {this.props.recipes.user && this.props.recipes.user.name} </h6>
-                    </div>
-                    <button onClick = {(e) => this.buttonClicked(e)}> Edit </button>
-                </div>  
+            <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
+               <div className="card card-signin my-5">
+               <div className="card-body">
+                   <h5 className="card-title text-center">{this.props.recipes.recipeName}</h5>
+                   <h5 className="card-title">Total Calories : {this.props.recipes.calories}</h5>
+                   <p className="card-text"></p>
+                   <button className= "btn btn-primary" onClick = {(e) =>this.buttonClicked(e)}>Edit</button>
+               </div>
+               </div>
+           </div>
             </>
         );
     }

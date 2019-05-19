@@ -1,4 +1,5 @@
-import { Category } from "../model/category";
+import { number } from "prop-types";
+import { Recipe } from "../model/recipe";
 
 export const recipeType = {
     NO_INGREDIENTS: 'NO_INGREDIENT',
@@ -8,7 +9,141 @@ export const recipeType = {
     CATEGORY_UPDATED: 'CATEGORY_UPDATED',
     RECIPE_NAME_UPDATED: 'RECIPE_NAME_UPDATED',
     ALL_RECIPES_SUCCESS: 'ALL_RECIPE_SUCCESS',
-    ALL_RECIPES_FAILURE: 'ALL_RECIPE_FAILURE'
+    ALL_RECIPES_FAILURE: 'ALL_RECIPE_FAILURE',
+    RECIPE_UPDATED : 'RECIPE_UPDATED',
+    INGREDIENT_UPDATE_1: 'INGREDIENT_UPDATE_1',
+    INGREDIENT_UPDATE_2: 'INGREDIENT_UPDATE_2',
+    INGREDIENT_UPDATE_3: 'INGREDIENT_UPDATE_3',
+    AMOUNT_UPDATE_1: 'AMOUNT_UPDATE_1',
+    AMOUNT_UPDATE_2: 'AMOUNT_UPDATE_2',
+    AMOUNT_UPDATE_3: 'AMOUNT_UPDATE_3',
+    REC_INGREDIENT_CREATE: 'REC_INGREDIENT_CREATE'
+}
+
+export const createRecipeIngredient = (newRecipe: Recipe, ingIdOne: number, ingIdTwo: number, ingIdThree: number, 
+    amountOne: number, amountTwo: number, amountThree: number) => async (dispatch) => {
+    try{
+        const newRecipeIngr = {
+            recipe : {
+                recipeId : newRecipe.recipeId
+            },
+            ingredient : {
+                ingredientsId : ingIdOne
+            },
+            amount : amountOne
+        }
+
+        const resp1 = await fetch('http://localhost:8080/recipe-ingredient', {
+            method: 'POST',
+            credentials: 'include',
+            body: JSON.stringify(newRecipeIngr),
+            headers: {
+                'content-type': 'application/json'
+            }
+        });
+
+        if (ingIdTwo > 0) {
+            const newRecipeIngr2 = {
+                recipe : {
+                    recipeId : newRecipe.recipeId
+                },
+                ingredient : {
+                    ingredientsId : ingIdTwo
+                },
+                amount : amountTwo
+            }
+
+            const resp = await fetch('http://localhost:8080/recipe-ingredient', {
+                method: 'POST',
+                credentials: 'include',
+                body: JSON.stringify(newRecipeIngr2),
+                headers: {
+                    'content-type': 'application/json'
+                }
+            });
+        }
+
+        if (ingIdThree > 0) {
+            const newRecipeIngr3 = {
+                recipe : {
+                    recipeId : newRecipe.recipeId
+                },
+                ingredient : {
+                    ingredientsId : ingIdThree
+                },
+                amount : amountThree
+            }
+
+            const resp = await fetch('http://localhost:8080/recipe-ingredient', {
+                method: 'POST',
+                credentials: 'include',
+                body: JSON.stringify(newRecipeIngr3),
+                headers: {
+                    'content-type': 'application/json'
+                }
+            });
+        }
+        dispatch({
+            type: recipeType.REC_INGREDIENT_CREATE
+        })
+
+    } catch (err) {
+
+    }
+}
+
+export const updateIngrOne = (event) => {
+    return {
+        payload: {
+            ingredient1: event.target.value
+        },
+        type: recipeType.INGREDIENT_UPDATE_1
+    }
+}
+
+export const updateIngrTwo = (event) => {
+    return {
+        payload: {
+            ingredient2: event.target.value
+        },
+        type: recipeType.INGREDIENT_UPDATE_2
+    }
+}
+
+export const updateIngrThree = (event)  => {
+    return {
+        payload: {
+            ingredient3: event.target.value
+        },
+        type: recipeType.INGREDIENT_UPDATE_3
+    }
+}
+
+export const updateAmountOne = (event) => {
+    return {
+        payload: {
+            amount1: event.target.value
+        },
+        type: recipeType.AMOUNT_UPDATE_1
+    }
+}
+
+export const updateAmountTwo = (event) => {
+    return {
+        payload: {
+            amount2: event.target.value
+        }, 
+        type: recipeType.AMOUNT_UPDATE_2
+    }
+}
+
+export const updateAmountThree = (event) => {
+    return {
+        payload: {
+            amount3: event.target.value
+        },
+        type: recipeType.AMOUNT_UPDATE_3
+    }
 }
 
 export const recipeSet = (recipeId: number, recipeName: string, totalcalorie: number, category: number, user: undefined, meal: undefined) => async (dispatch) => {
@@ -41,7 +176,7 @@ export const recipeSet = (recipeId: number, recipeName: string, totalcalorie: nu
             dispatch({
                 type: recipeType.RECIPE_SUCCESS,
                 payload: {
-                    recipe
+                    recipe: recipe
                 }
             })
         } else {
@@ -50,6 +185,19 @@ export const recipeSet = (recipeId: number, recipeName: string, totalcalorie: nu
             })
         }
     } catch (err) {
+        console.trace(err);
+    }
+}
+
+export const addIngredient = (e) => async (dispatch) => {
+    try {
+
+        const updatedIngredient = {
+            
+        }
+
+    }
+    catch(err) {
         console.trace(err);
     }
 }

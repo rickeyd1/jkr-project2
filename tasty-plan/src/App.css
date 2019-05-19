@@ -63,7 +63,7 @@
   width: 100%;
 }
 
-.form-signin .btn {
+.form-signin .submit {
   font-size: 80%;
   border-radius: 5rem;
   letter-spacing: .1rem;
@@ -157,4 +157,22 @@
 
 .card-header-shadow {
   box-shadow: 12px 14px 21px -9px rgba(0,0,0,1);
+}
+
+.rounded-drop {
+  border-radius: 10px;
+}
+
+.spaced-selection{
+  display : flex;
+  flex-direction : row;
+}
+
+.spacing {
+  margin-right: 2rem;
+}
+
+.center-button {
+  display: flex;
+  justify-content: center;
 }

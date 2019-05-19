@@ -29,6 +29,11 @@ public class RecipeIngredientController {
 		return riService.findAll();
 	}
 	
+	@GetMapping("recipe/{id}")
+	public List<RecipeIngedient> findByRecipeId(@PathVariable int id) {
+		return riService.findByRecipeId(id);
+	}
+	
 	@PostMapping()
 	public RecipeIngedient save(@RequestBody RecipeIngedient ri) {
 		return riService.save(ri);
