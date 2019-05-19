@@ -31,9 +31,9 @@ class MenuContainer extends React.Component<MenuContainerProps> {
                 <div className="navbar-header c-pointer shift-left">
                     <div className="display-left">
                         <MenuButton handleMouseDown={(e) => this.handleMouseDown(e)} />
-                        <label className="user-welcome">{`Hello ${user.username}!`}</label>
+                        <label className="user-welcome">{`Hello ${user && user.username}!`}</label>
                     </div>
-                    <MenuComponent handleMouseDown={(e) => this.handleMouseDown(e)} menuVisibility={visible}/>
+                    <MenuComponent handleMouseDown={(e) => this.handleMouseDown(e)} menuVisibility={visible} user2={user}/>
                 </div>
             </nav>
         );

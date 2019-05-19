@@ -4,6 +4,7 @@ export const loginTypes = {
     UPDATE_PASSWORD: 'UPDATE_PASSWORD',
     UPDATE_ERROR: 'UPDATE_ERROR',
     LOGIN_FAILED: 'LOGIN_FAILED',
+    LOGGING_OUT: 'LOGGING_OUT',
     NAVIGATE: 'NAVIGATE'
 }
 
@@ -29,7 +30,7 @@ export const submitLogin = (username: string, password: string, event, history) 
             dispatch({
                 type: loginTypes.UPDATE_ERROR
             })
-        } else if (resp.status === 200) {
+        } else if (resp.status === 201) {
             const body = await resp.json();
             history.push('/dummy');
             dispatch({
@@ -45,6 +46,18 @@ export const submitLogin = (username: string, password: string, event, history) 
         }
     } catch (err) {
         console.log(err);
+    }
+}
+export const logout = () => async () => {
+    await fetch('http:/localhost:8081/user/logout', {
+        method: 'POST',
+        credentials: 'include'
+    });
+
+    return {
+        payload: {
+            type: loginTypes.LOGGING_OUT
+        }
     }
 }
 
