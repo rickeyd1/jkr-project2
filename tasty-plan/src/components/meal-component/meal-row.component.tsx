@@ -4,13 +4,13 @@ export class MealRowTableComponent extends Component {
     render() {
         return (
             <div>
-                <tr>
+                <th>
                     <td>1,001</td>
                     <td>responsive</td>
                     <td>bootstrap</td>
                     <td>cards</td>
                     <td>grid</td>
-                </tr>
+                </th>
             </div>
         )
     }

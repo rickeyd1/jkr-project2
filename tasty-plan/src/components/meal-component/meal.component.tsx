@@ -37,6 +37,7 @@ export class MealComponent extends Component<IMealProps, IMealState> {
     }
 
     render() {
+        const meal = this.state.meal;
         const stylesObj = {
             background: '#9ae681'
         };
@@ -69,7 +70,8 @@ export class MealComponent extends Component<IMealProps, IMealState> {
                                 </div>
                             </div>
                         </div>
-                        <MealTableComponent />
+                        {meal}
+                        <MealTableComponent /> 
                     </div>
 
                     <h2 className="sub-header mt-5">Current Recipe cards</h2>
