@@ -36,6 +36,11 @@ public class RecipeController {
 		return recipeService.findByRecipeName(recipeName);
 	}
 	
+	@GetMapping("user/{id}")
+	public List<Recipe> findByUser(@PathVariable int id) {
+		return recipeService.findByUser(id);
+	}
+	
 	@PostMapping()
 	public Recipe save(@RequestBody Recipe r) {
 		return recipeService.save(r);
