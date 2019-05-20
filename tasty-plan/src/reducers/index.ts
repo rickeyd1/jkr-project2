@@ -9,6 +9,7 @@ import { User } from "../model/user";
 import { loginReducer } from './login.reducer';
 import { Recipe } from '../model/recipe';
 import { FoodType } from '../model/foodType';
+import { RecipeIngredient } from '../model/recipe_ingredient';
 
 
 export interface IDumState {
@@ -30,8 +31,9 @@ export interface IRecipeState {
     category? : number,
     user? : User,
     ingredient?: Ingredient,
-    displayMessage?: String
-    recipeList : Recipe[]
+    displayMessage?: String,
+    recipeList : Recipe[],
+    recipeIngredientList: RecipeIngredient[],
     ingred1: number,
     ingred2: number,
     ingred3: number,

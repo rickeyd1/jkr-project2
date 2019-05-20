@@ -10,6 +10,7 @@ const initialState: IRecipeState = {
     ingredient: undefined,
     displayMessage: undefined,
     recipeList: [],
+    recipeIngredientList: [],
     ingred1: 0,
     ingred2: 0,
     ingred3: 0,
@@ -22,6 +23,7 @@ const initialState: IRecipeState = {
 export const recipeReducer = (state = initialState, action) => {
     switch (action.type) {
         case recipeType.ALL_RECIPES_SUCCESS:
+            console.log('Reducer '+ action.payload.recipe);
             return {
                 ...state,
                 recipeList: action.payload.recipe,
@@ -82,6 +84,16 @@ export const recipeReducer = (state = initialState, action) => {
             return {
                 ...state,
                 newRecipe: action.payload.recipe
+            }
+        case recipeType.USER_RECIPES_GET:
+            return {
+                ...state,
+                recipeList: action.payload.recipe
+            }
+        case recipeType.REC_INGREDIENT_GET:
+            return {
+                ...state,
+                recipeIngredientList: action.payload.recipeIngredients
             }
         default:
             break;

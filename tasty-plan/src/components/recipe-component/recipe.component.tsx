@@ -41,17 +41,6 @@ class RecipeComponent extends Component<IRecipeProps, IRecipeContainerState> {
         }
     }
 
-    addIngredientMenu = (e) => {
-        e.preventDefault();
-        let newArr = this.state.addIngredientArr.slice();
-        newArr.push(<AddIngredientComponent key={'new ingredient-' + this.createUnique(1)} category={this.props.recipe.category} recipeName={this.props.recipe.recipeName} totalcalorie={this.props.recipe.totalcalorie}
-            findIngredientByType={this.props.findIngredientByType} recipeSet={this.props.recipeSet} ingredientList={this.props.ingredient.ingredientList} />);
-        this.setState({
-            addIngredientArr: newArr,
-            addBool: true
-        })
-    }
-
     createUnique = (num: number) => {
         const id = this.state && this.state.someNum + num;
         this.setState({
@@ -135,7 +124,7 @@ class RecipeComponent extends Component<IRecipeProps, IRecipeContainerState> {
                                     </div>
 
                                     <div className="form-label-group">
-                                        <h4> Add Ingredients :</h4>
+                                        <h4>Add Ingredients :</h4>
                                     </div>
                                     <div className="form-label-group">
                                         <input type="number" id="ingredient1" className="form-control" placeholder="Food Category"

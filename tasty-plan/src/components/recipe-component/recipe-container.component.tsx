@@ -1,33 +1,56 @@
 import React from "react";
 import { IRecipeState, IState } from "../../reducers";
-import { findAllRecipe } from "../../actions/recipe.action";
+import { findAllRecipe, findUserRecipes, findRecipeIngredients } from "../../actions/recipe.action";
 import { connect } from "react-redux";
 import { RecipeCard } from "./recipe_card.component";
+import { User } from "../../model/user";
+import { Recipe } from "../../model/recipe";
 
 interface IRecipeCardProps {
-    recipes: IRecipeState,
+    recipeList: IRecipeState,
     findAllRecipe: () => void
+    findUserRecipes: (user: User) => void
+    findRecipeIngredients: (recipe: Recipe) => void
 }
 
-class RecipeContainer extends React.Component<IRecipeCardProps> {
+interface IRecState {
+    someNum: number
+}
+
+class RecipeContainer extends React.Component<IRecipeCardProps, IRecState> {
     
+    constructor(props:IRecipeCardProps) {
+        super(props);
+        this.state = {
+            someNum: 0
+        }
+
+    }
+
     componentDidMount = () => {
-        this.props.findAllRecipe();
+        this.props.findUserRecipes(new User(1, "Ricky Canola", " ", "Ric Davis", "rickjay0@gmail.com", undefined));
+    }
+
+    createUnique = (num: number) => {
+        const id = this.state && this.state.someNum + num;
+        this.setState({
+            someNum: id
+        })
+        return id;
     }
 
     render() {
 
-        const recipeList = this.props.recipes.recipeList;
+        const recipeList = this.props.recipeList && this.props.recipeList.recipeList;
         const stylesObj = {
             background: '#9ae681'
         };
-
         return (
             <>
-                <div style={stylesObj} className="mainContainer">
+                <div style={stylesObj}>
                     { recipeList &&
                         recipeList.map(currRecipe => (
-                            <RecipeCard key={'recipe-' + currRecipe.recipeId} recipes={currRecipe}/>
+                            <RecipeCard key={'recipe-' + currRecipe.recipeId} recipes={currRecipe} />
                         ))
                     }
                 </div>
@@ -46,12 +69,14 @@ class RecipeContainer extends React.Component<IRecipeCardProps> {
 
 const mapStateToProps = (state: IState) => {
     return {
-        recipes: state.recipe
+        recipeList: state.recipe
     }
 }
 
 const mapDispatchToProps = {
-    findAllRecipe: findAllRecipe
+    findAllRecipe: findAllRecipe,
+    findUserRecipes: findUserRecipes,
+    findRecipeIngredients: findRecipeIngredients
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipeContainer)
