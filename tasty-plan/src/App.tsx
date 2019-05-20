@@ -9,8 +9,9 @@ import { RecipeComponent } from './components/recipe-component/recipe.component'
 import { ProfileComponent } from './components/profile-component/profile.component';
 import logInComponent from './components/log-component/log-in.component';
 import { IngredientComponent } from './components/ingredient-component/ingredient.component';
-import { MealComponent } from './components/meal-component/meal.component';
+import { MealComponent } from './components/meal-component/Meal-Dash-Component/meal.component';
 import history from './util/history';
+import { MealCreateComponent } from './components/meal-component/New-meal-component/meal-create.component';
 
 const App: React.FC = () => {
   return (
@@ -24,6 +25,7 @@ const App: React.FC = () => {
         <Route path="/ingredient" component={IngredientComponent} />
         <Route path="/meal" component={MealComponent} />
         <Route exact path="/" component={logInComponent} />
+        <Route path="/newmeal" component={MealCreateComponent} />
       </Router>
       </BrowserRouter>
     </Provider>
