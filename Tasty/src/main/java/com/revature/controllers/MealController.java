@@ -31,7 +31,11 @@ public class MealController {
 //	public Meal FindByMealName(Meal name) {
 //		return mealService.findbyMealName(name);
 //	}
+<<<<<<< HEAD
 //	@Secured
+=======
+	@Secured
+>>>>>>> recipes
 	@GetMapping("mealall")
 	public List<Meal> findAllList() {
 		return mealService.findAll();

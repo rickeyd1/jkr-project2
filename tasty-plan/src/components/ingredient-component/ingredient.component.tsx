@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import { Ingredient } from '../../model/ingredient';
 
-export class IngredientComponent extends Component {
+interface IIngredientProps {
+    ingredient: Ingredient
+}
+
+export class IngredientComponent extends React.Component<IIngredientProps> {
 
     render() {
         return (
-            <div>
-                Welcome to the Ingredient page!
-            </div>
+            <option>{this.props.ingredient.name}</option>
         )
     }
 }

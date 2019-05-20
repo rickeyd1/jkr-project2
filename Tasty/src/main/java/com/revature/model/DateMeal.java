@@ -23,11 +23,11 @@ public class DateMeal {
 	@Column(nullable=false)
 	private String date;
 	
-	@OneToOne
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name="meal_FK")
 	private Meal mealId;
-	
-	@OneToOne
+
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name="time_FK")
 	private TimeOfTable timeId;
 

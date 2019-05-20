@@ -33,22 +33,32 @@ public class Recipe {
 	@ManyToOne
 	private Users user;
 	
+<<<<<<< HEAD
 	@ManyToMany
 	private List<Meal> meal;
 	
+=======
+>>>>>>> recipes
 	public Recipe() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+<<<<<<< HEAD
 	public Recipe(int recipeId, String recipeName, int calories, Category category, Users user, List<Meal> meal) {
+=======
+	public Recipe(int recipeId, String recipeName, int calories, Category category, Users user) {
+>>>>>>> recipes
 		super();
 		this.recipeId = recipeId;
 		this.recipeName = recipeName;
 		this.calories = calories;
 		this.category = category;
 		this.user = user;
+<<<<<<< HEAD
 		this.meal = meal;
+=======
+>>>>>>> recipes
 	}
 
 	public int getRecipeId() {
@@ -91,12 +101,19 @@ public class Recipe {
 		this.user = user;
 	}
 
+<<<<<<< HEAD
 	public List<Meal> getMeal() {
 		return meal;
 	}
 
 	public void setMeal(List<Meal> meal) {
 		this.meal = meal;
+=======
+	@Override
+	public String toString() {
+		return "Recipe [recipeId=" + recipeId + ", recipeName=" + recipeName + ", calories=" + calories + ", category="
+				+ category + ", user=" + user + "]";
+>>>>>>> recipes
 	}
 
 	@Override
@@ -105,7 +122,10 @@ public class Recipe {
 		int result = 1;
 		result = prime * result + calories;
 		result = prime * result + ((category == null) ? 0 : category.hashCode());
+<<<<<<< HEAD
 		result = prime * result + ((meal == null) ? 0 : meal.hashCode());
+=======
+>>>>>>> recipes
 		result = prime * result + recipeId;
 		result = prime * result + ((recipeName == null) ? 0 : recipeName.hashCode());
 		result = prime * result + ((user == null) ? 0 : user.hashCode());
@@ -128,11 +148,14 @@ public class Recipe {
 				return false;
 		} else if (!category.equals(other.category))
 			return false;
+<<<<<<< HEAD
 		if (meal == null) {
 			if (other.meal != null)
 				return false;
 		} else if (!meal.equals(other.meal))
 			return false;
+=======
+>>>>>>> recipes
 		if (recipeId != other.recipeId)
 			return false;
 		if (recipeName == null) {
@@ -147,6 +170,7 @@ public class Recipe {
 			return false;
 		return true;
 	}
+<<<<<<< HEAD
 
 	@Override
 	public String toString() {
@@ -156,4 +180,6 @@ public class Recipe {
 
 	
 	
+=======
+>>>>>>> recipes
 }

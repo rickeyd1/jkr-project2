@@ -7,7 +7,7 @@ import { Grocery } from "../../model/grocery";
 interface IGroceryProps {
 
 }
-export class RecipeComponent extends Component<IGroceryProps, any> {
+export class GrocerComponent extends Component<IGroceryProps, any> {
     constructor(props) {
         super(props)
         //Set state to props here
@@ -51,5 +51,3 @@ const mapStateToProps = (state: IState) => {
 const mapDispatchToProps = {
     grocery: Grocery
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(RecipeComponent);

@@ -25,7 +25,6 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@Secured
 	@GetMapping("{id}")
 	public Users findById(@PathVariable int id) {
 		return userService.findById(id);
