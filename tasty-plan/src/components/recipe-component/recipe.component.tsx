@@ -79,10 +79,10 @@ class RecipeComponent extends Component<IRecipeProps, IRecipeContainerState> {
         this.props.findIngredientByType(typeId);
     }
 
-    SendNewRecipe = (e) => {
+    SendNewRecipe = async (e) => {
         e.preventDefault();
-        this.props.recipeSet(0, this.props.recipe.recipeName, this.props.recipe.totalcalorie, this.props.recipe.category, undefined, undefined)
-        this.props.createRecipeIngredient(this.props.recipe.newRecipe, this.props.recipe.ingred1, this.props.recipe.ingred2, this.props.recipe.ingred3, this.props.recipe.amount1, this.props.recipe.amount2, this.props.recipe.amount3);
+        await this.props.recipeSet(0, this.props.recipe.recipeName, this.props.recipe.totalcalorie, this.props.recipe.category, undefined, undefined)
+        await this.props.createRecipeIngredient(this.props.recipe.newRecipe, this.props.recipe.ingred1, this.props.recipe.ingred2, this.props.recipe.ingred3, this.props.recipe.amount1, this.props.recipe.amount2, this.props.recipe.amount3);
         console.log('Submitted');
     }
 
