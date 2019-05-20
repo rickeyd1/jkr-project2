@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 import { IState, IIngredientState, IRecipeState } from "../../reducers";
 import { recipeSet, setRecipeName, setCalories, setCategory, updateAmountOne, updateAmountTwo, updateAmountThree, updateIngrOne, updateIngrTwo, updateIngrThree, createRecipeIngredient } from "../../actions/recipe.action";
 import { connect } from "react-redux";
@@ -23,6 +24,22 @@ interface IRecipeProps {
     createRecipeIngredient: (newRecipe: Recipe, ingIdOne: number, ingIdTwo: number, ingIdThree: number, 
         amountOne: number, amountTwo: number, amountThree: number) => void
 }
+=======
+import { Ingredients } from "../../model/ingredient";
+import { IState } from "../../reducers";
+import { recipeSet } from "../../actions/recipe.action";
+import { connect } from "react-redux";
+import '../../includes/bootstrap';
+
+interface IRecipeState {
+    ingredient: Ingredients[];
+    totalCalories: number;
+}
+
+interface IRecipeProps {
+    ingredient: Ingredients
+    totalCalories: number
+>>>>>>> grocery-list
 
 interface IRecipeContainerState {
     addIngredientArr: any[];

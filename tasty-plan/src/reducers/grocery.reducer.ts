@@ -1,27 +1,29 @@
 import { IGroceryState } from ".";
-import { groceryType } from "../actions/grocery.action";
-
+import { groceryType } from '../actions/grocery.action';
 
 const initialState: IGroceryState = {
-    grocery: undefined,
-    displayMessage: undefined
+    groceryList: []
 }
 
 export const groceryReducer = (state = initialState, action) => {
     
     switch (action.type) {
-        case groceryType.GROCERY_UPDATE:
+        case groceryType.GET_LIST:
+            // console.log(action.payload.groceryList);
             return {
                 ...state,
-                displayMessage: 'Grocery has been udpated'
-                //payload goes here
+                groceryList: action.payload.groceryList
             }
-        case groceryType.GROCERY_FAILED:
+        case groceryType.LIST_UPDATE:
             return {
-                ...state,
-                displayMessage: 'Grocery failed to update'
+                ...state
+            }
+        case groceryType.ENTRY_DELETE:
+            return {
+                ...state
             }
         default:
+            break;
     }
     return state;
 }

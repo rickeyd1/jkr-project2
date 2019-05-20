@@ -13,7 +13,8 @@ export const loginReducer = (state = initialState, action) => {
         case loginTypes.LOGGED_IN:
             return {
                 ...state,
-                user: action.payload.user
+                user: action.payload.user,
+                errorMessage: ''
             }
         case loginTypes.UPDATE_USERNAME:
             return {
@@ -34,6 +35,10 @@ export const loginReducer = (state = initialState, action) => {
             return {
                 ...state,
                 errorMessage: 'Unable to Login, Please try again later'
+            }
+        case loginTypes.NAVIGATE:
+            return {
+                ...state
             }
         default:
             break;

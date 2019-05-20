@@ -1,11 +1,16 @@
 package com.revature.model;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -39,58 +44,34 @@ public class Ingredients {
 		this.foodType = foodType;
 	}
 
-	/**
-	 * @return the ingredientsId
-	 */
 	public int getIngredientsId() {
 		return ingredientsId;
 	}
 
-	/**
-	 * @param ingredientsId the ingredientsId to set
-	 */
 	public void setIngredientsId(int ingredientsId) {
 		this.ingredientsId = ingredientsId;
 	}
 
-	/**
-	 * @return the name
-	 */
 	public String getName() {
 		return name;
 	}
 
-	/**
-	 * @param name the name to set
-	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	/**
-	 * @return the calories
-	 */
 	public int getCalories() {
 		return calories;
 	}
 
-	/**
-	 * @param calories the calories to set
-	 */
 	public void setCalories(int calories) {
 		this.calories = calories;
 	}
 
-	/**
-	 * @return the foodType
-	 */
 	public FoodType getFoodType() {
 		return foodType;
 	}
 
-	/**
-	 * @param foodType the foodType to set
-	 */
 	public void setFoodType(FoodType foodType) {
 		this.foodType = foodType;
 	}
@@ -137,5 +118,6 @@ public class Ingredients {
 			return false;
 		return true;
 	}
-
+	
+	
 }
