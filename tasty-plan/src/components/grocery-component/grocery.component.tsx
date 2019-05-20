@@ -20,6 +20,10 @@ class GroceryComponent extends React.Component<IGroceryComponentProps> {
         this.props.getUserGroceryList(this.props.user.user);
     }
 
+    componentWillUnmount = () => {
+        this.props.getUserGroceryList(this.props.user.user);
+    }
+
     render() {
         const stylesObj = {
             background: '#9ae681'
