@@ -45,7 +45,7 @@ class GroceryComponent extends React.Component<IGroceryComponentProps> {
 
 const mapStateToProps = (state: IState) => {
     return {
-        groceries: state.groceries,
+        groceries: state.grocery,
         user: state.login
     }
 }
