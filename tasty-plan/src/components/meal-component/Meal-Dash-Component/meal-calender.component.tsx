@@ -23,15 +23,13 @@ export class MealCalendarComponent extends Component {
                         <div role="tabpanel" className="tab-pane active" id="home1">
                             <h4>Week</h4>
                             <p>
-                                1. These Bootstrap 4 Tabs work basically the same as the Bootstrap 3.x tabs.
-                               
-                                <button className="btn btn-primary-outline btn-lg">Wow</button>
+                                Meal Planning week will go here!
                             </p>
                         </div>
                         <div role="tabpanel" className="tab-pane" id="profile1">
                             <h4>Next Week</h4>
                             <p>
-                                2. Tabs are helpful to hide or collapse some addtional content.
+                                Next Week meal planning appears here.
                             </p>
                         </div>
                     </div>

@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { store } from './Store';
 import logInComponent from './components/log-component/log-in.component';
 import { IngredientComponent } from './components/ingredient-component/ingredient.component';
-import { MealComponent } from './components/meal-component/meal.component';
+import { MealComponent } from './components/meal-component/Meal-Dash-Component/meal.component';
 import history from './util/history';
 import RecipeComponent from '../src/components/recipe-component/recipe.component';
 import RecipeContainer from './components/recipe-component/recipe-container.component';
