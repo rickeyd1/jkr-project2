@@ -30,7 +30,7 @@ class RecipeContainer extends React.Component<IRecipeCardProps, IRecState> {
     }
 
     componentDidMount = () => {
-        this.props.findUserRecipes(new User(1, "Ric Davis", "rickjack@gmail.com","Ricky Canola", "pass"));
+        this.props.findUserRecipes(this.props.user.user);
     }
 
     createUnique = (num: number) => {

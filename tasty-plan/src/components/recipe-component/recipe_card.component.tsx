@@ -84,7 +84,7 @@ export class RecipeCard extends React.Component<RecipeProps, IRecipeCardState> {
                         <IngredientFoodTypeComponent key={'ingredient-' + ingre.id} ingredientName={ingre.ingredient} ingredientAmount={ingre.amount} />
                         ))
                    }
-                   <button className= "btn btn-primary" onClick = {() => this.buttonClicked(listing)}>Edit</button>
+                   <button className= "btn btn-primary" onClick = {() => this.buttonClicked(listing)}>Add Ingredients to Grocery List</button>
                </div>
                </div>
            </div>
