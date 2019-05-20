@@ -1,8 +1,8 @@
 import React from 'react';
-import { Ingredient } from '../../model/ingredient';
+import { Ingredients } from '../../model/ingredient';
 
 interface IIngredientProps {
-    ingredient: Ingredient
+    ingredient: Ingredients
 }
 
 export class IngredientComponent extends React.Component<IIngredientProps> {

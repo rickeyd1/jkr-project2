@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { MealTableComponent } from './meal-table.component';
-import { MealCountComponent } from './meal-count.component';
-import { MealCardComponent } from './meal-card.component';
-import { MealCalendarComponent } from './meal-calender.component';
 import { Meal } from '../../../model/meal';
-import { User } from '../../../model/user';
 import { Recipe } from '../../../model/recipe';
+import { User } from '../../../model/user';
+import { MealCalendarComponent } from './meal-calender.component';
+import { MealCardComponent } from './meal-card.component';
+import { MealCountComponent } from './meal-count.component';
+import { MealTableComponent } from './meal-table.component';
+import { Link } from 'react-router-dom';
 
 interface IMealState {
     meal: Meal[];
@@ -66,6 +67,7 @@ export class MealComponent extends Component<IMealProps, IMealState> {
                                     <h4 className="card-title">Make a new meal!</h4>
                                     <p className="card-text">Want to make a new meal! Save it for future use.</p>
                                     <button className="btn btn-primary">New Meal</button>
+                                    <Link to="/newmeal"> New Meal </Link>
                                 </div>
                             </div>
                             <div className="card card-inverse bg-inverse mt-3">

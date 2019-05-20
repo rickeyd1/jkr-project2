@@ -1,6 +1,6 @@
 import { User } from "./user";
 import { Category } from "./category";
-import { Ingredient } from "./ingredient";
+import { Ingredients } from "./ingredient";
 
 
 
@@ -11,10 +11,10 @@ export class Recipe {
     calories: number;
     user : User;
     category : Category;
-    ingredient : Ingredient;
+    ingredient : Ingredients;
     amount : number
 
-    constructor(recipeId=0, recipeName = '', totalcalorie=0, user = new User, category = new Category, ingredient = new Ingredient, amount = 0) {
+    constructor(recipeId=0, recipeName = '', totalcalorie=0, user = new User, category = new Category, ingredient = new Ingredients, amount = 0) {
         this.recipeId = recipeId;
         this.recipeName = recipeName;
         this.calories = totalcalorie;

@@ -1,11 +1,11 @@
 import { Groceries } from "./grocery";
-import { Ingredient } from "./ingredient";
+import { Ingredients } from "./ingredient";
 
 export class GroceryIngredients {
     id: number;
     amount: number;
     groceryList: Groceries;
-    ingredient: Ingredient;
+    ingredient: Ingredients;
 
     constructor(id = 0, amount = 0, groceryList = undefined, ingredient = undefined) {
         this.id = id;

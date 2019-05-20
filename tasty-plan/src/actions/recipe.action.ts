@@ -149,7 +149,7 @@ export const updateAmountThree = (event) => {
     }
 }
 
-export const recipeSet = (recipeId: number, recipeName: string, totalcalorie: number, category: number, user: undefined, meal: undefined) => async (dispatch) => {
+export const recipeSet = (recipeId: number, recipeName: string, totalcalorie: number, category: number, user: User, meal: undefined) => async (dispatch) => {
     try {
         const newRecipe = {
             recipeId: 0,
@@ -159,7 +159,7 @@ export const recipeSet = (recipeId: number, recipeName: string, totalcalorie: nu
                 categoryId : category
             },
             user: {
-                userId: 1 
+                userId: user.userId
             }
         }
         const resp = await fetch('http://localhost:8080/recipe', {

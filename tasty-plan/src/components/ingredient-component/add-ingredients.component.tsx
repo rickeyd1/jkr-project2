@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Component } from 'react';
-import { Ingredient } from '../../model/ingredient';
+import { Ingredients } from '../../model/ingredient';
 import { IngredientComponent } from './ingredient.component';
 
 interface IAddIngredientProps {
@@ -9,7 +9,7 @@ interface IAddIngredientProps {
     totalcalorie: number,
     findIngredientByType: (typeId: number) => void,
     recipeSet: (recipeId: number, recipeName: string, totalcalorie: number, category: number, user: undefined, meal: undefined) => void
-    ingredientList: Ingredient[]
+    ingredientList: Ingredients[]
 }
 
 

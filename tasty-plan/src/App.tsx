@@ -19,12 +19,14 @@ import GroceryComponent from './components/grocery-component/grocery.component';
 import SignUpComponent from './components/log-component/sign-up.component';
 import RecipeContainerComponent from './components/recipe-component/recipe-container.component';
 import RecipeComponent from './components/recipe-component/recipe.component';
+import { MealCreateComponent } from './components/meal-component/New-meal-component/meal-create.component';
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
         <Router history={history}>
           <MenuContainer />
+          <Route path="/newmeal" component={MealCreateComponent} />
           <Route path="/grocery" component={GroceryComponent} />
           <Route path="/login" component={logInComponent} />
           <Route path="/signup" component={SignUpComponent} />

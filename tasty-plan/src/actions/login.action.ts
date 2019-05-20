@@ -29,9 +29,9 @@ export const submitLogin = (username: string, password: string, event, history) 
             dispatch({
                 type: loginTypes.UPDATE_ERROR
             })
-        } else if (resp.status === 200) {
+        } else if (resp.status === 201) {
             const body = await resp.json();
-            history.push('/dummy');
+            history.push('/meal');
             dispatch({
                 payload: {
                     user: body
