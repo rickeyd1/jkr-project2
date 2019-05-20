@@ -2,8 +2,11 @@ import { IIngredientState } from ".";
 import { ingredientType } from "../actions/ingredient.action";
 
 const initialState: IIngredientState = {
-    ingredient: undefined,
-    displayMessage: undefined
+    ingredientsId: 0,
+    name: '',
+    calories: 0,
+    foodType: undefined,
+    ingredientList : []
 }
 
 export const ingredientReducer = (state = initialState, action) => {
@@ -22,8 +25,7 @@ export const ingredientReducer = (state = initialState, action) => {
             case ingredientType.INGREDIENT_SUCCESS:
                 return {
                     ...state,
-                    displayMessage: 'Ingredient is successful'
-                    //payload goes here
+                    ingredientList : action.payload.ingredient
                 }
             
             default:

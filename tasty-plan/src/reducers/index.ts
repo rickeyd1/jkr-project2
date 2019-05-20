@@ -10,6 +10,8 @@ import { loginReducer } from './login.reducer';
 import { menuReducer } from './menuReducer';
 import { GroceryIngredients } from '../model/grocery-ingredients';
 import { signupReducer } from './sign-up.reducer';
+import { FoodType } from '../model/foodType';
+import { RecipeIngredient } from '../model/recipe_ingredient';
 
 
 export interface IDumState {
@@ -25,13 +27,30 @@ export interface IGroceryState {
 }
 
 export interface IIngredientState {
-    ingredient?: Ingredients,
-    displayMessage?: string
+    ingredientsId: number;
+    name: String;
+    calories: number;
+    foodType: FoodType;
+    ingredientList : Ingredients[]
 }
 
 export interface IRecipeState {
-    recipe?: Recipe,
-    displayMessage?: String
+    recipeId?: number,
+    recipeName? : string,
+    totalcalorie?: number,
+    category? : number,
+    user? : User,
+    ingredient?: Ingredients,
+    displayMessage?: String,
+    recipeList : Recipe[],
+    recipeIngredientList: RecipeIngredient[],
+    ingred1: number,
+    ingred2: number,
+    ingred3: number,
+    amount1: number,
+    amount2: number,
+    amount3: number,
+    newRecipe: Recipe
 }
 
 export interface ILoginState {

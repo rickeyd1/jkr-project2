@@ -44,4 +44,8 @@ public class RecipeService {
 		return recipeRepo.getOne(id);
 	}
 	
+	public List<Recipe> findByUser(int id) {
+		return recipeRepo.findByUserUserIdOrderByRecipeIdAsc(id);
+	}
+	
 }

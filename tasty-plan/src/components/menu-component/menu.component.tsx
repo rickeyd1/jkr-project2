@@ -22,9 +22,12 @@ class MenuComponent extends React.Component<MenuComponentProps> {
                 <div className="card"></div>
                 <Link to="/login" className="unset-anchor"><h2>Sign-In</h2></Link>
                 <div className="card"></div>
-                <Link to="/recipe" className="unset-anchor"><h2>Recipes</h2></Link>
+                <Link to="/recipe" className="unset-anchor"><h2>Create New Recipes</h2></Link>
+                <div className="card"></div>
+                <Link to="/allRecipes" className="unset-anchor"><h2>View Recipes</h2></Link>
                 <div className="card"></div>
                 <Link to="/grocery" className="unset-anchor"><h2>Grocery List</h2></Link>
+
             </div>
         );
     }

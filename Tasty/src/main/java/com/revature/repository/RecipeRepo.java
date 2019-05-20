@@ -11,4 +11,5 @@ public interface RecipeRepo extends JpaRepository<Recipe, Integer> {
 
 	List<Recipe> findByRecipeName(String recipeName);
  
+	List<Recipe> findByUserUserIdOrderByRecipeIdAsc(int id);
 }
