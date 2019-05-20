@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 import { Recipe } from "../model/recipe";
 import { User } from "../model/user";
-=======
-import { Ingredients } from "../model/ingredient";
->>>>>>> grocery-list
 
 export const recipeType = {
     NO_INGREDIENTS: 'NO_INGREDIENT',
@@ -26,7 +22,6 @@ export const recipeType = {
     REC_INGREDIENT_GET: 'REC_INGREDIENT_GET'
 }
 
-<<<<<<< HEAD
 export const createRecipeIngredient = (newRecipe: Recipe, ingIdOne: number, ingIdTwo: number, ingIdThree: number,
     amountOne: number, amountTwo: number, amountThree: number) => async (dispatch) => {
         try {
@@ -154,9 +149,6 @@ export const updateAmountThree = (event) => {
 }
 
 export const recipeSet = (recipeId: number, recipeName: string, totalcalorie: number, category: number, user: undefined, meal: undefined) => async (dispatch) => {
-=======
-export const recipeSet = (ingredient: Ingredients, totalCalories: number) => async (dispatch) => {
->>>>>>> grocery-list
     try {
         const newRecipe = {
             recipeId: 0,

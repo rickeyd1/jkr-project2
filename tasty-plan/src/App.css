@@ -156,41 +156,6 @@ body {
   background-color: #3b5998;
 }
 
-<<<<<<< HEAD
-/*****************Meal***********************/
-.card-recipe {
-  max-width: 18rem;
-}
-
-.card-tab {
-  border-radius: 10px;
-  width: 20%;
-  color: white;
-  background-color: #45bfb5;
-}
-
-.card-header-shadow {
-  box-shadow: 12px 14px 21px -9px rgba(0,0,0,1);
-}
-
-.rounded-drop {
-  border-radius: 10px;
-}
-
-.spaced-selection{
-  display : flex;
-  flex-direction : row;
-}
-
-.spacing {
-  margin-right: 2rem;
-}
-
-.center-button {
-  display: flex;
-  justify-content: center;
-}
-=======
 /************************NAV-BAR/Menu********************************/
 
 #theMenu {
@@ -406,4 +371,3 @@ a:hover{
   margin-right: 10px;
   border-radius: 15px;
 }
->>>>>>> grocery-list

@@ -13,23 +13,8 @@ export interface IGroceryComponentProps {
     updateGroceryIngredient: (amount: number, id: number) => void;
     deleteGroceryIngredient: (id: number) => void
 }
-<<<<<<< HEAD
-export class GrocerComponent extends Component<IGroceryProps, any> {
-    constructor(props) {
-        super(props)
-        //Set state to props here
-    }
-    //Storing new List to GroceryList in Store
-    StoreList = (e) => {
-
-    }
-
-    //Grabbing current Recipe from user session
-    componentDidMount = async () => {
-=======
  
 class GroceryComponent extends React.Component<IGroceryComponentProps> {
->>>>>>> grocery-list
 
     componentDidMount = () => {
         this.props.getUserGroceryList(this.props.user.user);
@@ -66,14 +51,9 @@ const mapStateToProps = (state: IState) => {
 }
 
 const mapDispatchToProps = {
-<<<<<<< HEAD
-    grocery: Grocery
-}
-=======
     getUserGroceryList: getUserGroceryList,
     updateGroceryIngredient: updateGroceryIngredient,
     deleteGroceryIngredient: deleteGroceryIngredient
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GroceryComponent);
->>>>>>> grocery-list
