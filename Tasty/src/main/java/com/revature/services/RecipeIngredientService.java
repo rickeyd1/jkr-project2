@@ -33,6 +33,5 @@ public class RecipeIngredientService {
 		// TODO Auto-generated method stub
 		return riRepo.getOne(id);
 	}
-	
-	
+
 }

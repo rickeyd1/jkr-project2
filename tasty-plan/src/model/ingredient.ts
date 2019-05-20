@@ -1,11 +1,11 @@
 import { FoodType } from "./foodType";
 
-export class Ingredient {
+export class Ingredients {
     ingredientsId: number;
     name: String;
     calories: number;
     foodType: FoodType;
-    ingredientList : Ingredient[];
+    ingredientList : Ingredients[];
 
     constructor(ingredientsId = 0, name = '', calories = 0, foodType = undefined, ingredientList = []) {
         this.ingredientsId = ingredientsId;

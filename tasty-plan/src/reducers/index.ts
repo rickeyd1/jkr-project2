@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { Ingredient } from "../model/ingredient";
+import { Ingredients } from "../model/ingredient";
 import { ingredientReducer } from "./ingredient.reducer";
 import { Groceries } from "../model/grocery";
 import { Recipe } from "../model/recipe";
@@ -19,7 +19,7 @@ export interface IIngredientState {
     name: String;
     calories: number;
     foodType: FoodType;
-    ingredientList : Ingredient[]
+    ingredientList : Ingredients[]
 }
 
 export interface IRecipeState {
@@ -28,7 +28,7 @@ export interface IRecipeState {
     totalcalorie?: number,
     category? : number,
     user? : User,
-    ingredient?: Ingredient,
+    ingredient?: Ingredients,
     displayMessage?: String,
     recipeList : Recipe[],
     recipeIngredientList: RecipeIngredient[],
@@ -49,15 +49,30 @@ export interface IGroceryState {
 }
 
 export interface IIngredientState {
-    ingredient?: Ingredient,
-    displayMessage?: string
+    ingredientsId: number;
+    name: String;
+    calories: number;
+    foodType: FoodType;
+    ingredientList : Ingredients[]
 }
 
-export interface IMealState {
-    mealId? : number,
-    mealName? : string,
-    size : number,
-    user : User
+export interface IRecipeState {
+    recipeId?: number,
+    recipeName? : string,
+    totalcalorie?: number,
+    category? : number,
+    user? : User,
+    ingredient?: Ingredients,
+    displayMessage?: String,
+    recipeList : Recipe[],
+    recipeIngredientList: RecipeIngredient[],
+    ingred1: number,
+    ingred2: number,
+    ingred3: number,
+    amount1: number,
+    amount2: number,
+    amount3: number,
+    newRecipe: Recipe
 }
 
 export interface ILoginState {

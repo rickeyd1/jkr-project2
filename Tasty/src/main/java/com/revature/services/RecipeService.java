@@ -48,4 +48,8 @@ public class RecipeService {
 		return recipeRepo.findByUserUserIdOrderByRecipeIdAsc(id);
 	}
 	
+	public List<Recipe> findByUser(int id) {
+		return recipeRepo.findByUserUserIdOrderByRecipeIdAsc(id);
+	}
+	
 }

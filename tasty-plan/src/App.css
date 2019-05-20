@@ -371,3 +371,17 @@ a:hover{
   margin-right: 10px;
   border-radius: 15px;
 }
+
+.spaced-selection{
+  display : flex;
+  flex-direction : row;
+}
+
+.spacing {
+  margin-right: 2rem;
+}
+
+.center-button {
+  display: flex;
+  justify-content: center;
+}

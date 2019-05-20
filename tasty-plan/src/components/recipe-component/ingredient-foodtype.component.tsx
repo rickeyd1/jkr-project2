@@ -1,8 +1,10 @@
-import { Ingredient } from "../../model/ingredient";
+import { Ingredients } from "../../model/ingredient";
 import React from "react";
+import { FoodType } from "../../model/foodType";
+import { RecipeIngredient } from "../../model/recipe_ingredient";
 
 interface IIngredientProps {
-    ingredientName: Ingredient;
+    ingredientName: Ingredients;
     ingredientAmount: number;
 }
 

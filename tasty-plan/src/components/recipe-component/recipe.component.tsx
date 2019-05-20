@@ -91,6 +91,7 @@ class RecipeComponent extends Component<IRecipeProps, IRecipeContainerState> {
 
     render() {
         const { recipeName, totalcalorie } = this.props.recipe;
+        const ingredientList = this.props.ingredient && this.props.ingredient.ingredientList;
         const stylesObj = {
             background: '#9ae681'
         };
@@ -175,8 +176,7 @@ class RecipeComponent extends Component<IRecipeProps, IRecipeContainerState> {
 
 const mapStateToProps = (state: IState) => {
     return {
-        recipe: state.recipe,
-        ingredient: state.ingredient
+        recipe: state.recipe
     }
 }
 
