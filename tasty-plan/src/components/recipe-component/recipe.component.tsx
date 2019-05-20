@@ -4,7 +4,6 @@ import { recipeSet, setRecipeName, setCalories, setCategory, updateAmountOne, up
 import { connect } from "react-redux";
 import '../../includes/bootstrap';
 import { findIngredientByType } from "../../actions/ingredient.action";
-import { AddIngredientComponent } from "../ingredient-component/add-ingredients.component";
 import { Recipe } from "../../model/recipe";
 
 interface IRecipeProps {
@@ -92,7 +91,6 @@ class RecipeComponent extends Component<IRecipeProps, IRecipeContainerState> {
 
     render() {
         const { recipeName, totalcalorie } = this.props.recipe;
-        const ingredientList = this.props.ingredient && this.props.ingredient.ingredientList;
         const stylesObj = {
             background: '#9ae681'
         };

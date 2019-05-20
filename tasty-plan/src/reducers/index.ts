@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-import { dummyReducer } from "./dummy.reducer"
 import { Ingredient } from "../model/ingredient";
 import { ingredientReducer } from "./ingredient.reducer";
 import { Grocery } from "../model/grocery";
@@ -11,10 +10,6 @@ import { Recipe } from '../model/recipe';
 import { FoodType } from '../model/foodType';
 import { RecipeIngredient } from '../model/recipe_ingredient';
 
-
-export interface IDumState {
-    dumMessage?: string
-}
 
 export interface IIngredientState {
     ingredientsId: number;
@@ -62,7 +57,6 @@ export interface IGroceryState {
     displayMessage?: String
 }
 export interface IState {
-    dum: IDumState,
     ingredient: IIngredientState,
     grocery: IGroceryState,
     recipe: IRecipeState,
@@ -70,7 +64,6 @@ export interface IState {
 }
 
 export const state = combineReducers<IState>({
-    dum: dummyReducer,
     ingredient: ingredientReducer,
     grocery: groceryReducer,
     recipe: recipeReducer,

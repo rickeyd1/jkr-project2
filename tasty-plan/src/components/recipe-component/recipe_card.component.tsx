@@ -1,7 +1,5 @@
-
-import * as React from 'react';
+import * as React from 'react'
 import { Recipe } from '../../model/recipe';
-import { Ingredient } from '../../model/ingredient';
 import { RecipeIngredient } from '../../model/recipe_ingredient';
 import { IngredientFoodTypeComponent } from './ingredient-foodtype.component';
 
