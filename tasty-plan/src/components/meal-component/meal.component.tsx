@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
+import { User } from '../../model/user';
+import { Recipe } from '../../model/recipe';
+import { Meal } from '../../model/meal';
 import { MealTableComponent } from './meal-table.component';
 import { MealCountComponent } from './meal-count.component';
 import { MealCardComponent } from './meal-card.component';
 import { MealCalendarComponent } from './meal-calender.component';
-import { Meal } from '../../../model/meal';
-import { User } from '../../../model/user';
-import { Recipe } from '../../../model/recipe';
 
 interface IMealState {
-    meal: Meal[];
-    count: number;
+    meal: Meal[]
 }
 
 interface IMealProps {
@@ -21,8 +20,7 @@ export class MealComponent extends Component<IMealProps, IMealState> {
     constructor(props) {
         super(props)
         this.state = {
-            meal: [],
-            count: 0
+            meal: []
         }
     }
 
@@ -35,15 +33,11 @@ export class MealComponent extends Component<IMealProps, IMealState> {
         console.table(body);
         this.setState({
             meal: body
-        });
-        this.setState({
-            count: this.state.meal.length
         })
     }
 
     render() {
         const meal = this.state.meal;
-        
         const stylesObj = {
             background: '#9ae681'
         };
@@ -52,7 +46,7 @@ export class MealComponent extends Component<IMealProps, IMealState> {
                 <div className="container-fluid" id="main">
                     <div className="row row-offcanvas row-offcanvas-left">
                     </div>
-                    <MealCountComponent count={this.state.count}/>
+                    <MealCountComponent />
 
                     <p className="lead mt-5">
                         Welcome to the meal page! Top four panels will show you how many recipes you have
@@ -76,10 +70,8 @@ export class MealComponent extends Component<IMealProps, IMealState> {
                                 </div>
                             </div>
                         </div>
-                        {meal.map(meal => (
-                        <MealTableComponent key={'meal-'+ meal.mealId} meal={meal} /> 
-                        ))}
-                        
+                        {meal}
+                        <MealTableComponent /> 
                     </div>
 
                     <h2 className="sub-header mt-5">Current Recipe cards</h2>

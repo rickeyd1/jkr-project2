@@ -1,14 +1,8 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 
-
-interface IMealCountProps {
-    count: number;
-}
-
-export class MealCountComponent extends PureComponent<IMealCountProps> {
+export class MealCountComponent extends Component {
 
     render() {
-        console.log(this.props.count);
         return (
             <div>
                        <div className="col main pt-5 mt-3">
@@ -43,7 +37,7 @@ export class MealCountComponent extends PureComponent<IMealCountProps> {
                                 <i className="fa fa-list fa-4x"></i>
                             </div>
                             <h6 className="text-uppercase">Meals</h6>
-                            <h1 className="display-4">{this.props.count}</h1>
+                            <h1 className="display-4">1</h1>
                         </div>
                     </div>
                 </div>
@@ -75,4 +69,3 @@ export class MealCountComponent extends PureComponent<IMealCountProps> {
         )
     }
 }
-

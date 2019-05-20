@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import { MealRowHeadTableComponent } from './meal-rowhead.component';
-import { Meal } from '../../../model/meal';
+import { MealRowTableComponent } from './meal-row.component';
 
-interface IMealTableProp {
-    meal: Meal;
-}
-export class MealTableComponent extends Component<IMealTableProp> {
+export class MealTableComponent extends Component {
 
     render() {
-        const meal = this.props.meal;
         return (
             <div>
                 <h2 className="sub-header ">Current Meal Table</h2>
@@ -16,16 +12,10 @@ export class MealTableComponent extends Component<IMealTableProp> {
                     <div className="table-responsive">
                         <table className="table table-striped">
                             <thead className="thead-inverse">
-                                <MealRowHeadTableComponent />
+                               <MealRowHeadTableComponent/>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>{meal.mealId}</td>
-                                    <td>{meal.mealName}</td>
-                                    <td>{meal.size}</td>
-                                    <td><button >Recipe</button></td>
-                                    <td>grid</td>
-                                </tr>
+                                <MealRowTableComponent/>
                             </tbody>
                         </table>
                     </div>
